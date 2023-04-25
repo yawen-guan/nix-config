@@ -1,8 +1,16 @@
 { config, lib, pkgs, ... }:
 
+# zsh is set as the default shell using `chsh`. 
+
 {
     programs.zsh = {
         enable = true;
+
+        # Extra commands for .zshrc file.
+        initExtra = ''
+            export PATH="$PATH:/home/yawen/.config/emacs/bin" # doom emacs
+        '';
+
         oh-my-zsh = {
             enable = true;
             plugins = [ 
@@ -11,6 +19,7 @@
             ];
             theme = "robbyrussell";
         };
+
         plugins = [
             {
                 name = "zsh-autosuggestions";

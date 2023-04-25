@@ -15,7 +15,7 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-  imports = [ ./zsh.nix ./git.nix ];
+  imports = [ ./zsh.nix ./git.nix ./emacs.nix ];
 
   # Allow unfree packages like obsidian.
   nixpkgs.config.allowUnfree = true;
@@ -36,6 +36,9 @@
 
     # Password Manager
     bitwarden
+
+    # Other packages
+    ripgrep
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
