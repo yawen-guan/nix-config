@@ -22,7 +22,16 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = (with pkgs; [ 
+  home.packages = (with pkgs; let
+    version = "0.11.0";
+    cerebro = pkgs.appimageTools.wrapType2 {
+      name = "Cerebro";
+      src = pkgs.fetchurl {
+        url = "https://github.com/cerebroapp/cerebro/releases/download/v${version}/Cerebro-${version}.AppImage";
+        sha256 = "sha256-+rjAMoQI3KTmHGFnyFoe20qIrAEi0DL3ksInFy677P8=";
+      };
+    };
+  in [ 
     # Text Editors
     obsidian
     vscode
@@ -37,8 +46,15 @@
     # Password Manager
     bitwarden
 
+    # Media
+    flameshot # screenshots
+
+    # Productivity
+    # cerebro 
+
     # Other packages
     ripgrep
+    nettools
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
