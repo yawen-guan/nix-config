@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-# zsh is set as the default shell using `chsh`. 
+# zsh is set to be the default shell using `chsh`. 
 
 {
     programs.zsh = {

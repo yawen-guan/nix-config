@@ -15,23 +15,14 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-  imports = [ ./zsh.nix ./git.nix ./emacs.nix ];
+  imports = [ ./bash.nix ./zsh.nix ./git.nix ./emacs.nix ./kitty.nix ];
 
   # Allow unfree packages like obsidian.
   nixpkgs.config.allowUnfree = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = (with pkgs; let
-    version = "0.11.0";
-    cerebro = pkgs.appimageTools.wrapType2 {
-      name = "Cerebro";
-      src = pkgs.fetchurl {
-        url = "https://github.com/cerebroapp/cerebro/releases/download/v${version}/Cerebro-${version}.AppImage";
-        sha256 = "sha256-+rjAMoQI3KTmHGFnyFoe20qIrAEi0DL3ksInFy677P8=";
-      };
-    };
-  in [ 
+  home.packages = (with pkgs; [ 
     # Text Editors
     obsidian
     vscode
@@ -39,9 +30,11 @@
     # PDF & Papers
     zotero
 
-    # Messagers
+    # Messagers & Meetings
     slack
     discord
+    # telegram-desktop # installed via apt
+    zoom-us
 
     # Password Manager
     bitwarden
@@ -102,6 +95,21 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+
+  xdg.enable=true;
+  xdg.mime.enable = true;
+  targets.genericLinux.enable = true;
+  # home.activation = {
+  #   linkDesktopApplications = {
+  #     after = [ "writeBoundary" "createXdgUserDirectories" ];
+  #     before = [ ];
+  #     data = ''
+  #       rm -rf ${config.xdg.dataHome}/"applications/home-manager"
+  #       mkdir -p ${config.xdg.dataHome}/"applications/home-manager"
+  #       cp -Lr ${config.home.homeDirectory}/.nix-profile/share/applications/* ${config.xdg.dataHome}/"applications/home-manager/"
+  #     '';
+  #   };
+  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
