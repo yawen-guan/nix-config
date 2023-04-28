@@ -1,5 +1,6 @@
 { ... }: {
   imports = [ 
+    ./autorandr.nix 
     ./bash.nix 
     ./emacs.nix
     ./git.nix

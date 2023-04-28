@@ -1,14 +1,13 @@
-{ config, lib, pkgs, ... }:
-
 # zsh is set to be the default shell using `chsh`. 
 
-{
+{ config, lib, pkgs, ... }: {
     programs.zsh = {
         enable = true;
 
         # Extra commands for .zshrc file.
         initExtra = ''
             export PATH="$PATH:/home/yawen/.config/emacs/bin" # doom emacs
+            export LC_ALL=en_US.UTF-8
         '';
 
         oh-my-zsh = {

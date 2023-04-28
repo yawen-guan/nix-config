@@ -37,6 +37,7 @@ in {
     # Messagers & Meetings
     slack
     discord
+    # tdesktop # telegram desktop
     # telegram-desktop # installed via apt
     zoom-us
 
@@ -44,14 +45,20 @@ in {
     bitwarden
 
     # Media
+    spotify
     flameshot # screenshots
 
     # Productivity
     # cerebro 
+    # albert
 
-    # Other packages
+    # Utils
     ripgrep
     nettools
+    wmctrl
+
+    # Programming
+    sbt
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -98,7 +105,11 @@ in {
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
+    # TERMINAL = "kitty";
   };
+
+  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-rime ];
 
   # Help applications launcher find applications installed by home-manager.
   # See https://github.com/nix-community/home-manager/issues/1439#issuecomment-714830958.
