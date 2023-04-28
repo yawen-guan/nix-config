@@ -1,6 +1,11 @@
-{ config, pkgs, ... }:
-
-{
+{ 
+  config, 
+  pkgs, 
+  lib,
+  ... 
+}: let 
+  nixGLWrap = import ./modules/nixgl { inherit pkgs lib; };
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "yawen";
@@ -15,14 +20,13 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-  imports = [ ./bash.nix ./zsh.nix ./git.nix ./emacs.nix ./kitty.nix ];
-
-  # Allow unfree packages like obsidian.
-  nixpkgs.config.allowUnfree = true;
+  imports = [ ./modules/applications ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = (with pkgs; [ 
+    nixgl.auto.nixGLDefault
+
     # Text Editors
     obsidian
     vscode
@@ -96,20 +100,11 @@
     # EDITOR = "emacs";
   };
 
+  # Help applications launcher find applications installed by home-manager.
+  # See https://github.com/nix-community/home-manager/issues/1439#issuecomment-714830958.
   xdg.enable=true;
   xdg.mime.enable = true;
   targets.genericLinux.enable = true;
-  # home.activation = {
-  #   linkDesktopApplications = {
-  #     after = [ "writeBoundary" "createXdgUserDirectories" ];
-  #     before = [ ];
-  #     data = ''
-  #       rm -rf ${config.xdg.dataHome}/"applications/home-manager"
-  #       mkdir -p ${config.xdg.dataHome}/"applications/home-manager"
-  #       cp -Lr ${config.home.homeDirectory}/.nix-profile/share/applications/* ${config.xdg.dataHome}/"applications/home-manager/"
-  #     '';
-  #   };
-  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
