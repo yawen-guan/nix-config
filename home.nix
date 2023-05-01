@@ -29,7 +29,7 @@ in {
 
     # Text Editors
     obsidian
-    vscode
+    # vscode 
 
     # PDF & Papers
     zotero
@@ -108,8 +108,11 @@ in {
     # TERMINAL = "kitty";
   };
 
-  i18n.inputMethod.enabled = "fcitx5";
-  i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-rime ];
+  # Chinese input.
+  # For ubuntu with kde, use `sudo apt install --install-recommends fcitx5 fcitx5-chinese-addons` instead.
+  # See https://wiki.debian.org/I18n/Fcitx5.
+  # i18n.inputMethod.enabled = "fcitx5";
+  # i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
 
   # Help applications launcher find applications installed by home-manager.
   # See https://github.com/nix-community/home-manager/issues/1439#issuecomment-714830958.
