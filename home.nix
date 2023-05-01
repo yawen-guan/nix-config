@@ -29,7 +29,6 @@ in {
 
     # Text Editors
     obsidian
-    # vscode 
 
     # PDF & Papers
     zotero
@@ -37,7 +36,6 @@ in {
     # Messagers & Meetings
     slack
     discord
-    # tdesktop # telegram desktop
     # telegram-desktop # installed via apt
     zoom-us
 
@@ -46,7 +44,11 @@ in {
 
     # Media
     spotify
-    flameshot # screenshots
+
+    # Screenshots. 
+    # - Enable Shortcut: https://flameshot.org/docs/guide/key-bindings/#linux.
+    # - Config Shortcut: In KDE custom shortcuts and in application.
+    flameshot 
 
     # Productivity
     # cerebro 
@@ -56,9 +58,13 @@ in {
     ripgrep
     nettools
     wmctrl
+    fusuma # Multitouch gestures. Config file is at ~/.config/fusuma/config.yml. 
+    xdotool
+    uxplay
 
     # Programming
     sbt
+    cmake
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
