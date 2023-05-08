@@ -65,6 +65,9 @@ in {
     # Programming
     sbt
     cmake
+    scala_3
+    scalafmt
+    scala-cli
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
