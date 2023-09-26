@@ -27,23 +27,34 @@ in {
   home.packages = (with pkgs; [ 
     nixgl.auto.nixGLDefault
 
-    # Text Editors
+    # Texts
+    # Markdown
     obsidian
+    # Latex
+    # texlive.combined.scheme-full
 
     # PDF & Papers
     zotero
+    
+    # Drives
+    # icloud-for-linux # Installed via snap.
+    google-drive-ocamlfuse
 
-    # Messagers & Meetings
+    # Emails & Messagers & Meetings
+    mailspring
     slack
     discord
-    # telegram-desktop # installed via apt
-    zoom-us
+    # telegram-desktop # Installed via apt.
+    # zoom-us
+
+    # Calendar
+    morgen
 
     # Password Manager
     bitwarden
 
     # Media
-    spotify
+    # spotify # installed via snap
 
     # Screenshots. 
     # - Enable Shortcut: https://flameshot.org/docs/guide/key-bindings/#linux.
@@ -61,6 +72,16 @@ in {
     fusuma # Multitouch gestures. Config file is at ~/.config/fusuma/config.yml. 
     xdotool
     uxplay
+    # goldendict # Installed via apt.
+    crow-translate
+    # rclone # Sync cloud drives.
+    # nordvpn # Installed via apt.
+    # logiops # Installed via official local building (cmake).
+    cron
+    # mtools # Installed via apt.
+    autorandr
+    vlc
+    # backintime # Backup tool. Installed via apt.
 
     # Programming
     sbt
@@ -68,6 +89,13 @@ in {
     scala_3
     scalafmt
     scala-cli
+    # coq_8_15
+    # coq_8_16
+    ocaml
+    opam
+
+    # Gnome extension
+    # fullscreen-on-new-workspace
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
