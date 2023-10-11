@@ -49,6 +49,7 @@ in {
 
     # Calendar
     morgen
+    # todoist $ via snap according to the official website.
 
     # Password Manager
     bitwarden
