@@ -12,7 +12,6 @@
     };
     nixgl = {
       url = "github:guibou/nixGL";
-      # inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -30,8 +29,6 @@
       packages.x86_64-linux.default = home-manager.defaultPackage.x86_64-linux;
       homeConfigurations."yawen" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
-        # pkgs.config.allowUnfree = true;
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
