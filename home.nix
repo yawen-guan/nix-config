@@ -30,7 +30,6 @@ in
     # typora # Installed via apt, otherwise it failed to load appmenu-gtk-module and canberra-gtk-module. Tried (nixGLWrap typora). 
 
     ##### PDF reader. #####
-
     zotero
 
     ##### IM. #####
@@ -72,6 +71,7 @@ in
     # coq_8_16
     ocaml
     opam
+    nixpkgs-fmt
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
