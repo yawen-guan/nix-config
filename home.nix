@@ -23,6 +23,10 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = (with pkgs; [
+    # After switching to nvidia or switching back Intel, remember to run 
+    # `home-manager switch --impure` to make sure nixGL find the correct driver. 
+    # Otherwise there's an error message related to broken OpenGL when trying to 
+    # run programs like kitty. 
     nixgl.auto.nixGLDefault
 
     ##### Text editor. #####
@@ -62,8 +66,8 @@ in
     electron
 
     ##### Programming. #####
-    sbt
     cmake
+    sbt
     scala_3
     scalafmt
     scala-cli
