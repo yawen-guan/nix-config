@@ -73,6 +73,7 @@ in
     scala-cli
     # coq_8_15
     # coq_8_16
+    coq_8_17
     ocaml
     opam
     nixpkgs-fmt
