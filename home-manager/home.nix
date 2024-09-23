@@ -12,6 +12,7 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
+    outputs.homeManagerModules
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -45,7 +46,6 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "yawen";
     homeDirectory = "/home/yawen";
@@ -53,7 +53,78 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ unstable.scala ];
+  home.packages = with pkgs; [
+    # ===== Wrapper =====
+    # nixgl requires '--impure' attribute.
+    ## nixgl.auto.nixGLDefault
+
+    # ===== PDFs =====
+    zotero_7
+
+    # ===== IM =====
+    slack
+    discord
+    ## (nixGL telegram-desktop)
+
+    # ===== Music =====
+    # (nixGL spotify)
+
+    # ===== Utils =====
+    planify
+    flameshot
+    fzf
+    ripgrep
+    ripgrep-all
+    nettools
+    crow-translate
+    fd
+    rsync
+    rsnapshot
+    autorandr
+    ttfautohint
+    docker
+    mu
+    isync
+
+    # ===== Writing =====
+    # === Tex ===
+    texlive.combined.scheme-full
+    # === Markdown ===
+    typora
+
+    # ===== Programming =====
+    # === Scala ===
+    unstable.scala
+    unstable.sbt
+    unstable.metals
+    unstable.scalafmt
+    # === C / C++ ===
+    cmake
+    cmake-language-server
+    libtool
+    clang-tools
+    # === OCaml ===
+    ocaml
+    ocamlformat
+    ocamlPackages.ocp-indent
+    ocamlPackages.findlib
+    ocamlPackages.dune_3
+    ocamlPackages.utop
+    ocamlPackages.merlin
+    # === Shell ===
+    shfmt
+    shellcheck
+    # === Nix ===
+    nixfmt-rfc-style
+    nix-prefetch-git
+    nix-prefetch-github
+    # === Coq ===
+    coq_8_18
+    # === Python ===
+    pyenv
+    # === NodeJS ===
+    nodejs
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
