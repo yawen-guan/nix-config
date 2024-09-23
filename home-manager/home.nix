@@ -7,7 +7,12 @@
   config,
   pkgs,
   ...
-}: {
+}:
+let
+  nixGLIntel = inputs.nixGL.packages."${pkgs.system}".nixGLIntel;
+  nixGLDefault = inputs.nixGL.packages."${pkgs.system}".nixGLDefault;
+in
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -19,7 +24,19 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+
+    # NixGL integration.
+    # See: https://github.com/nix-community/home-manager/issues/3968#issuecomment-2135919008
+    (builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
+      sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
+    })
   ];
+
+  # NixGL integration.
+  # See: https://github.com/nix-community/home-manager/issues/3968#issuecomment-2135919008
+  # nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
+  nixGL.prefix = "${nixGLDefault}/bin/nixGL";
 
   nixpkgs = {
     # You can add overlays here
@@ -56,7 +73,8 @@
   home.packages = with pkgs; [
     # ===== Wrapper =====
     # nixgl requires '--impure' attribute.
-    ## nixgl.auto.nixGLDefault
+    nixGLIntel
+    nixGLDefault
 
     # ===== PDFs =====
     zotero_7
@@ -64,10 +82,10 @@
     # ===== IM =====
     slack
     discord
-    ## (nixGL telegram-desktop)
+    (config.lib.nixGL.wrap telegram-desktop)
 
     # ===== Music =====
-    # (nixGL spotify)
+    (config.lib.nixGL.wrap spotify)
 
     # ===== Utils =====
     planify
