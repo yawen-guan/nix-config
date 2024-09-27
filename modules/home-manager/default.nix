@@ -3,7 +3,6 @@
 {
   imports = [
     # List your module files here
-    # ./options.nix
     ./zsh.nix
     ./bash.nix
   ];

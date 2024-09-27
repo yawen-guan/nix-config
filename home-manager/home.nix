@@ -35,8 +35,8 @@ in
 
   # NixGL integration.
   # See: https://github.com/nix-community/home-manager/issues/3968#issuecomment-2135919008
-  # nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
-  nixGL.prefix = "${nixGLDefault}/bin/nixGL";
+  nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
+  # nixGL.prefix = "${nixGLDefault}/bin/nixGL";
 
   nixpkgs = {
     # You can add overlays here
@@ -45,6 +45,7 @@ in
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      outputs.overlays.emacs-overlay
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -74,7 +75,7 @@ in
     # ===== Wrapper =====
     # nixgl requires '--impure' attribute.
     nixGLIntel
-    nixGLDefault
+    # nixGLDefault
 
     # ===== PDFs =====
     zotero_7
@@ -85,7 +86,7 @@ in
     (config.lib.nixGL.wrap telegram-desktop)
 
     # ===== Music =====
-    (config.lib.nixGL.wrap spotify)
+    # (config.lib.nixGL.wrap spotify)
 
     # ===== Utils =====
     planify
@@ -98,11 +99,13 @@ in
     fd
     rsync
     rsnapshot
+    isync
     autorandr
     ttfautohint
     docker
     mu
-    isync
+    chezmoi
+    tree-sitter
 
     # ===== Writing =====
     # === Tex ===
@@ -142,11 +145,44 @@ in
     pyenv
     # === NodeJS ===
     nodejs
+
+    # ===== Games =====
+    # (config.lib.nixGL.wrap unstable.steam)
   ];
 
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs = {
+    home-manager.enable = true;
+    git = {
+      enable = true;
+      userName = "Yawen Guan";
+      userEmail = "yawen.guan.email@gmail.com";
+    };
+    vim.enable = true;
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+    kitty = {
+      enable = true;
+      package = (config.lib.nixGL.wrap pkgs.kitty);
+      font.name = "Iosevka";
+      settings = {
+        enabled_layouts = "horizontal,stack,splits,tall,fat,vertical";
+        linux_display_server = "x11";
+      };
+    };
+    # emacs = {
+    #  enable = true; 
+    #  package = pkgs.emacs-git;
+    # };
+  };
+
+  # Make installed apps show up in Gnome.
+  # Read: https://github.com/nix-community/home-manager/issues/1439
+  xdg.enable = true;
+  xdg.mime.enable = true;
+  targets.genericLinux.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

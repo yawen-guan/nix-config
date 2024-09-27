@@ -20,4 +20,10 @@
       config.allowUnfree = true;
     };
   };
+
+  # Emacs overlay with emacs 29.4 (2024-06-20)
+  # See: https://github.com/nix-community/emacs-overlay
+  emacs-overlay = import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/26dc8270e154711306a25d0d2921bd6dda545521.tar.gz;
+    });
 }

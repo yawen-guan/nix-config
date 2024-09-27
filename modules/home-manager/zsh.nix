@@ -27,7 +27,7 @@
     oh-my-zsh = {
       enable = true;
       custom = "$HOME/.config/oh-my-zsh-custom";
-      plugins = [ "git" "command-not-found" "direnv" "fzf" ];
+      plugins = [ "git" "command-not-found" "fzf" ];
     };
 
     plugins = [
