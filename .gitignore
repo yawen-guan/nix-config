@@ -1,3 +1,4 @@
 .owncloudsync.log
 .sync_journal.db
 .sync_journal.db-wal
+.sync_journal.db-shm

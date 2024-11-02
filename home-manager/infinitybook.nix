@@ -8,10 +8,6 @@
   pkgs,
   ...
 }:
-let
-  nixGLIntel = inputs.nixGL.packages."${pkgs.system}".nixGLIntel;
-  nixGLDefault = inputs.nixGL.packages."${pkgs.system}".nixGLDefault;
-in
 {
   # You can import other home-manager modules here
   imports = [
@@ -25,18 +21,27 @@ in
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    # NixGL integration.
-    # See: https://github.com/nix-community/home-manager/issues/3968#issuecomment-2135919008
+    # Temporatory NixGL integration.
+    # TODO: remove it after https://github.com/nix-community/home-manager/pull/5355 is on 24.05.
     (builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
-      sha256 = "01dkfr9wq3ib5hlyq9zq662mp0jl42fw3f6gd2qgdf8l8ia78j7i";
+      url = "https://raw.githubusercontent.com/nix-community/home-manager/8bd6e0a1a805c373686e21678bb07f23293d357b/modules/misc/nixgl.nix";
+      sha256 = "1krclaga358k3swz2n5wbni1b2r7mcxdzr6d7im6b66w3sbpvnb3";
     })
   ];
 
-  # NixGL integration.
-  # See: https://github.com/nix-community/home-manager/issues/3968#issuecomment-2135919008
-  nixGL.prefix = "${nixGLIntel}/bin/nixGLIntel";
-  # nixGL.prefix = "${nixGLDefault}/bin/nixGL";
+  # NixGL Integration.
+  # Read: https://nix-community.github.io/home-manager/index.xhtml#sec-usage-gpu-non-nixos
+  # Set primary GPU wrapper as mesa, and secondary GPU wrapper as nvidiaPrime
+  # ("Prime" means it is for secondary GPU). Later, Call `config.lib.nixGL.wrap`
+  # for programs using the primary GPU, and `config.lib.nixGL.wrapOffload` for
+  # programs using the secondary GPU.
+  nixGL.packages = inputs.nixgl.packages;
+  nixGL.defaultWrapper = "mesa";
+  nixGL.offloadWrapper = "nvidiaPrime";
+  nixGL.installScripts = [
+    "mesa"
+    "nvidiaPrime"
+  ];
 
   nixpkgs = {
     # You can add overlays here
@@ -72,21 +77,17 @@ in
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
-    # ===== Wrapper =====
-    # nixgl requires '--impure' attribute.
-    nixGLIntel
-    # nixGLDefault
-
     # ===== PDFs =====
-    zotero_7
+    unstable.zotero
 
     # ===== IM =====
     slack
     discord
     (config.lib.nixGL.wrap telegram-desktop)
+    # (config.lib.nixGL.wrap zoom-us)
 
     # ===== Music =====
-    # (config.lib.nixGL.wrap spotify)
+    (config.lib.nixGL.wrap spotify)
 
     # ===== Utils =====
     planify
@@ -102,16 +103,19 @@ in
     isync
     autorandr
     ttfautohint
-    docker
+    # docker
+    # docker-compose
     mu
     chezmoi
     tree-sitter
+    timeshift-minimal
+    (config.lib.nixGL.wrap owncloud-client)
 
     # ===== Writing =====
     # === Tex ===
     texlive.combined.scheme-full
     # === Markdown ===
-    typora
+    (config.lib.nixGL.wrap typora) # doesn't work
 
     # ===== Programming =====
     # === Scala ===
@@ -125,6 +129,7 @@ in
     libtool
     clang-tools
     # === OCaml ===
+    opam
     ocaml
     ocamlformat
     ocamlPackages.ocp-indent
@@ -145,6 +150,8 @@ in
     pyenv
     # === NodeJS ===
     nodejs
+    # === Ruby ===
+    rbenv
 
     # ===== Games =====
     # (config.lib.nixGL.wrap unstable.steam)
@@ -156,6 +163,9 @@ in
       enable = true;
       userName = "Yawen Guan";
       userEmail = "yawen.guan.email@gmail.com";
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
     };
     vim.enable = true;
     direnv = {
@@ -173,10 +183,9 @@ in
         linux_display_server = "x11";
       };
     };
-    # emacs = {
-    #  enable = true; 
-    #  package = pkgs.emacs-git;
-    # };
+    emacs = {
+      enable = true;
+    };
   };
 
   # Make installed apps show up in Gnome.
