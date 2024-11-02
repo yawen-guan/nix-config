@@ -21,7 +21,7 @@
       [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
       eval "$(pyenv init -)"
       # opam
-      # [[ ! -r /home/yawen/.opam/opam-init/init.zsh ]] || source /home/yawen/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+      [[ ! -r /home/yawen/.opam/opam-init/init.zsh ]] || source /home/yawen/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
     '';
 
     oh-my-zsh = {
