@@ -52,7 +52,7 @@
     crow-translate
     fd
     rsync
-    rsnapshot
+    # rsnapshot
     isync
     autorandr
     ttfautohint
