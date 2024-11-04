@@ -60,11 +60,29 @@ in
   # More packages.
   home.packages = with pkgs; [
     # ===== GUIs =====
-    (config.lib.nixGL.wrap telegram-desktop) # Gtk-Message: Failed to load module "canberra-gtk-module"
-    (config.lib.nixGL.wrap zoom-us) # does not work
-    (config.lib.nixGL.wrap owncloud-client) # Gtk-Message: Failed to load module "canberra-gtk-module"
-    (config.lib.nixGL.wrap typora) # does not work
-    (config.lib.nixGL.wrap spotify) # Gtk-Message: Failed to load module "canberra-gtk-module"
+
+    # === telegram ===
+    # Gtk-Message: Failed to load module "canberra-gtk-module"
+    # Installed via apt instead.
+    # (config.lib.nixGL.wrap telegram-desktop)
+
+    # === zoom ===
+    # Does not work, installed via apt (check https://zoom.us/download)
+    # (config.lib.nixGL.wrap zoom-us)
+
+    # === owncloud ===
+    # Gtk-Message: Failed to load module "canberra-gtk-module"
+    # Installed via apt instead.
+    # (config.lib.nixGL.wrap owncloud-client)
+
+    # === typora ===
+    (config.lib.nixGL.wrap typora)
+
+    # === spotify ===
+    # Gtk-Message: Failed to load module "canberra-gtk-module"
+    (config.lib.nixGL.wrap spotify)
+
+    # === steam ===
     # (config.lib.nixGL.wrap unstable.steam)
   ];
 
