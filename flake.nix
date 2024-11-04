@@ -91,7 +91,7 @@
             ./home-manager/infinitybook.nix
           ];
         };
-        "yawen@homePC" = home-manager.lib.homeManagerConfiguration {
+        "yawen@homepc" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
