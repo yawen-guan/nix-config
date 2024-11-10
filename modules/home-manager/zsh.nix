@@ -9,7 +9,7 @@
     # Extra commands for .zshrc file.
     initExtra = ''
       # doom emacs
-      export PATH="$PATH:/home/yawen/.config/emacs/bin" # doom emacs
+      export PATH="$PATH:$HOME/.config/emacs/bin" # doom emacs
       # fix locale
       # read: https://stackoverflow.com/questions/2499794/how-to-fix-a-locale-setting-warning-from-perl
       LC_CTYPE=en_US.UTF-8
@@ -21,7 +21,7 @@
       [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
       eval "$(pyenv init -)"
       # opam
-      [[ ! -r /home/yawen/.opam/opam-init/init.zsh ]] || source /home/yawen/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+      [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
     '';
 
     oh-my-zsh = {

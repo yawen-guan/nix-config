@@ -23,6 +23,15 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # nix-darwin 
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    mac-app-util.url = "github:hraban/mac-app-util";
+
   };
 
   outputs =
@@ -30,6 +39,8 @@
       self,
       nixpkgs,
       home-manager,
+      darwin,
+      mac-app-util,
       ...
     }@inputs:
     let
@@ -53,7 +64,6 @@
       # Formatter for your nix files, available through 'nix fmt'
       # Other options beside 'alejandra' include 'nixpkgs-fmt'
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
       # Reusable nixos modules you might want to export
@@ -86,10 +96,7 @@
           extraSpecialArgs = {
             inherit inputs outputs;
           };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./home-manager/infinitybook.nix
-          ];
+          modules = [ ./home-manager/infinitybook.nix ];
         };
         "yawen@homepc" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -97,6 +104,34 @@
             inherit inputs outputs;
           };
           modules = [ ./home-manager/homepc.nix ];
+        };
+      };
+
+      # nix-darwin + home-manager configuration entrypoint
+      darwinConfigurations = {
+        "yg-macbook" = darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          modules = [
+            ./darwin/configuration.nix
+            {
+              nixpkgs.overlays = [
+                outputs.overlays.additions
+                outputs.overlays.modifications
+                outputs.overlays.unstable-packages
+              ];
+              nixpkgs.config.allowUnfree = true;
+            }
+            mac-app-util.darwinModules.default
+            inputs.home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.yawen = import ./home-manager/macbook.nix;
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs;
+              };
+            }
+          ];
         };
       };
     };

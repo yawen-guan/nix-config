@@ -1,0 +1,59 @@
+# Home-manager configuration file for infinitybook.
+# (It replaces ~/.config/nixpkgs/home.nix)
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+let
+  common = import ./common.nix {
+    inherit lib config pkgs;
+    homeManagerModules = outputs.homeManagerModules;
+  };
+in
+{
+  # You can import other home-manager modules here
+  imports = [
+    # If you want to use modules your own flake exports (from modules/home-manager):
+    # outputs.homeManagerModules.example
+    # outputs.homeManagerModules
+
+    # Or modules exported from other flakes (such as nix-colors):
+    # inputs.nix-colors.homeManagerModules.default
+
+    # You can also split up your configuration and import pieces of it here:
+    # ./nvim.nix
+
+    inputs.mac-app-util.homeManagerModules.default 
+
+    common
+  ];
+
+  # home = {
+  #   username = "yawen";
+  #   homeDirectory = "/Users/yawen";
+  # };
+
+  # More packages.
+  home.packages = with pkgs; [
+    karabiner-elements 
+    # hello
+    # unstable.hello # test
+
+    # ===== GUIs =====
+    telegram-desktop
+    zoom-us
+    spotify
+  ];
+
+  programs.kitty = {
+    package = pkgs.kitty; 
+    # font.size = "12";
+  };
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  home.stateVersion = "23.05";
+}
