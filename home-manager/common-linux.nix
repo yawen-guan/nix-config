@@ -46,6 +46,7 @@
     crow-translate
     timeshift-minimal
     ttfautohint
+    gnome-multi-writer
   ];
 
   programs.kitty.package = (config.lib.nixGL.wrap pkgs.kitty);
