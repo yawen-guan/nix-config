@@ -75,6 +75,8 @@
     nodejs
     # === Ruby ===
     rbenv
+    # === Java ===
+    jdk8
   ];
 
   programs = {
