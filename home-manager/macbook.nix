@@ -12,6 +12,7 @@ let
   common = import ./common.nix {
     inherit lib config pkgs;
     homeManagerModules = outputs.homeManagerModules;
+    overlays = outputs.overlays;
   };
 in
 {
@@ -27,19 +28,18 @@ in
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    inputs.mac-app-util.homeManagerModules.default 
-
     common
+    inputs.mac-app-util.homeManagerModules.default
   ];
 
-  # home = {
-  #   username = "yawen";
-  #   homeDirectory = "/Users/yawen";
-  # };
+  home = {
+    username = "yawen";
+    homeDirectory = "/Users/yawen";
+  };
 
   # More packages.
   home.packages = with pkgs; [
-    karabiner-elements 
+    karabiner-elements
     # hello
     # unstable.hello # test
 
@@ -50,7 +50,7 @@ in
   ];
 
   programs.kitty = {
-    package = pkgs.kitty; 
+    package = pkgs.kitty;
     # font.size = "12";
   };
 
