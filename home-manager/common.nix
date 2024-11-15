@@ -35,6 +35,9 @@
   };
 
   home.packages = with pkgs; [
+    # ===== Browser =====
+    zen-browser
+
     # ===== PDFs =====
     unstable.zotero
 
