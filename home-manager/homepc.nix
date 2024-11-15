@@ -12,9 +12,6 @@ let
   common = import ./common.nix {
     inherit lib config pkgs;
     homeManagerModules = outputs.homeManagerModules;
-  };
-  common-linux = import ./common-linux.nix {
-    inherit lib config pkgs;
     overlays = outputs.overlays;
   };
 in
@@ -32,7 +29,7 @@ in
     # ./nvim.nix
 
     common
-    common-linux
+    ./common-linux.nix
   ];
 
   # NixGL Integration.

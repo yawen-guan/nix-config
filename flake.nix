@@ -105,33 +105,12 @@
           };
           modules = [ ./home-manager/homepc.nix ];
         };
-      };
-
-      # nix-darwin + home-manager configuration entrypoint
-      darwinConfigurations = {
-        "yg-macbook" = darwin.lib.darwinSystem {
-          system = "x86_64-darwin";
-          modules = [
-            ./darwin/configuration.nix
-            {
-              nixpkgs.overlays = [
-                outputs.overlays.additions
-                outputs.overlays.modifications
-                outputs.overlays.unstable-packages
-              ];
-              nixpkgs.config.allowUnfree = true;
-            }
-            mac-app-util.darwinModules.default
-            inputs.home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.yawen = import ./home-manager/macbook.nix;
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
-            }
-          ];
+        "yawen@yg-macbook" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./home-manager/macbook.nix ];
         };
       };
     };
