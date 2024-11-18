@@ -34,6 +34,9 @@
     };
   };
 
+  # Allow packages to discover user fonts.
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     # ===== Browser =====
     zen-browser
