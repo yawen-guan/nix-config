@@ -2,7 +2,13 @@
 # Note:
 # - zsh is set to be the default shell using `chsh`. 
 
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   programs.zsh = {
     enable = true;
 
@@ -27,7 +33,11 @@
     oh-my-zsh = {
       enable = true;
       custom = "$HOME/.config/oh-my-zsh-custom";
-      plugins = [ "git" "command-not-found" "fzf" ];
+      plugins = [
+        "git"
+        "command-not-found"
+        "fzf"
+      ];
     };
 
     plugins = [
