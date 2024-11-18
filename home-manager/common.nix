@@ -71,6 +71,7 @@
 
     # ===== Fonts =====
     iosevka
+    nerdfonts
 
     # === Tex ===
     texlive.combined.scheme-full
