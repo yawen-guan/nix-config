@@ -58,16 +58,11 @@ in
     # === telegram ===
     # Gtk-Message: Failed to load module "canberra-gtk-module"
     # Installed via apt instead.
-    # (config.lib.nixGL.wrap telegram-desktop)
+    (config.lib.nixGL.wrap telegram-desktop)
 
     # === zoom ===
     # Does not work, installed via apt (check https://zoom.us/download)
     # (config.lib.nixGL.wrap zoom-us)
-
-    # === owncloud ===
-    # Gtk-Message: Failed to load module "canberra-gtk-module"
-    # Installed via apt instead.
-    # (config.lib.nixGL.wrap owncloud-client)
 
     # === typora ===
     (config.lib.nixGL.wrap typora)
