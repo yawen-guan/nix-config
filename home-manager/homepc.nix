@@ -50,6 +50,7 @@ in
   # More packages.
   home.packages = with pkgs; [
     # ===== GUIs =====
+    slack
     # (config.lib.nixGL.wrap telegram-desktop) # Gtk-Message: Failed to load module "canberra-gtk-module"
     # (config.lib.nixGL.wrap zoom-us) # does not work
     # (config.lib.nixGL.wrap owncloud-client) # Gtk-Message: Failed to load module "canberra-gtk-module"

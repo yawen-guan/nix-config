@@ -40,11 +40,7 @@ in
   # programs using the secondary GPU.
   nixGL.packages = inputs.nixgl.packages;
   nixGL.defaultWrapper = "mesa";
-  nixGL.offloadWrapper = "nvidiaPrime";
-  nixGL.installScripts = [
-    "mesa"
-    "nvidiaPrime"
-  ];
+  nixGL.installScripts = [ "mesa" ];
 
   home = {
     username = "yawen";
@@ -54,10 +50,11 @@ in
   # More packages.
   home.packages = with pkgs; [
     # ===== GUIs =====
-    slack
+    # slack
 
     # === telegram ===
     # Gtk-Message: Failed to load module "canberra-gtk-module"
+    (config.lib.nixGL.wrap telegram-desktop)
 
     # === zoom ===
     # Does not work, installed via apt (check https://zoom.us/download)

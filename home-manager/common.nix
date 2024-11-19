@@ -45,7 +45,6 @@
     unstable.zotero
 
     # ===== IM =====
-    slack
     discord
 
     # ===== Utils =====
