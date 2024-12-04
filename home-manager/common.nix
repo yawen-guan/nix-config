@@ -39,7 +39,10 @@
 
   home.packages = with pkgs; [
     # ===== Browser =====
-    zen-browser
+    # zen-browser
+
+    # ===== Mail =====
+    protonmail-desktop
 
     # ===== PDFs =====
     unstable.zotero
