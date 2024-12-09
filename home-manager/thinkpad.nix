@@ -47,10 +47,10 @@ in
     homeDirectory = "/home/yawen";
   };
 
-  # More packages.
   home.packages = with pkgs; [
     # ===== GUIs =====
     # slack
+    vmware-horizon-client
 
     # === telegram ===
     # Gtk-Message: Failed to load module "canberra-gtk-module"
@@ -61,11 +61,11 @@ in
     # (config.lib.nixGL.wrap zoom-us)
 
     # === typora ===
-    (config.lib.nixGL.wrap typora)
+    # (config.lib.nixGL.wrap typora)
 
     # === spotify ===
     # Gtk-Message: Failed to load module "canberra-gtk-module"
-    (config.lib.nixGL.wrap spotify)
+    # (config.lib.nixGL.wrap spotify)
 
     # === steam ===
     # (config.lib.nixGL.wrap unstable.steam)
