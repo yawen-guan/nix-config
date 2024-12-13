@@ -49,7 +49,6 @@ in
 
   home.packages = with pkgs; [
     # ===== GUIs =====
-    # slack
     vmware-horizon-client
 
     # === telegram ===
