@@ -35,12 +35,22 @@
   };
 
   # Allow packages to discover user fonts.
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [ "Cantarell" ];
+      sansSerif = [
+        "UbuntuSans"
+        "Cantarell"
+      ];
+      monospace = [
+        "UbuntuMono"
+        "Cantarell"
+      ];
+    };
+  };
 
   home.packages = with pkgs; [
-    # ===== Browser =====
-    # zen-browser
-
     # ===== Mail =====
     protonmail-desktop
 
@@ -48,9 +58,11 @@
     unstable.zotero
 
     # ===== IM =====
+    slack
     discord
 
     # ===== Utils =====
+    todoist-electron
     # planify
     flameshot
     fzf
@@ -60,7 +72,7 @@
     # crow-translate
     fd
     rsync
-    # rsnapshot
+    rsnapshot
     isync
     autorandr
     # docker
@@ -70,6 +82,7 @@
     tree-sitter
     # timeshift-minimal
     openconnect
+    vscode
 
     # ===== Fonts =====
     iosevka
