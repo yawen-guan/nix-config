@@ -53,8 +53,9 @@ in
 
   # More packages.
   home.packages = with pkgs; [
+    vmware-horizon-client
+
     # ===== GUIs =====
-    slack
 
     # === telegram ===
     # Gtk-Message: Failed to load module "canberra-gtk-module"
