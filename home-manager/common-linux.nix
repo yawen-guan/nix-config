@@ -16,7 +16,7 @@
 
   home.packages = with pkgs; [
     # ===== Utils =====
-    planify
+    # planify
     crow-translate
     timeshift-minimal
     ttfautohint
