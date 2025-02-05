@@ -120,7 +120,7 @@
     nix-prefetch-git
     nix-prefetch-github
     # === Coq ===
-    coq_8_18
+    coq
     # === Python ===
     pyenv
     # === NodeJS ===
