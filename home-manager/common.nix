@@ -61,6 +61,9 @@
     slack
     discord
 
+    # ===== Browsers =====
+    google-chrome
+
     # ===== Utils =====
     todoist-electron
     # planify
