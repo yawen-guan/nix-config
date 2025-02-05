@@ -38,15 +38,9 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ "Cantarell" ];
-      sansSerif = [
-        "UbuntuSans"
-        "Cantarell"
-      ];
-      monospace = [
-        "UbuntuMono"
-        "Cantarell"
-      ];
+      serif = [ "NotoSerif Nerd Font" ];
+      sansSerif = [ "Ubuntu Nerd Font" ];
+      monospace = [ "Ubuntu Nerd Font" ];
     };
   };
 
