@@ -55,6 +55,9 @@
     slack
     discord
 
+    # ===== Notes =====
+    p3x-onenote
+
     # ===== Browsers =====
     google-chrome
 
