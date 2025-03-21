@@ -54,6 +54,7 @@ in
   # More packages.
   home.packages = with pkgs; [
     vmware-horizon-client
+    z3
 
     # ===== GUIs =====
 
