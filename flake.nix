@@ -1,5 +1,5 @@
 # Forked from: https://github.com/Misterio77/nix-starter-configs
-# Command: home-manager switch --flake .#yawen@infinitybook --impure
+# Command: home-manager switch --flake .#yawen@infinitybook
 
 {
   description = "Yawen's nix config";
@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-darwin 
+    # nix-darwin
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
