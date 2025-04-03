@@ -136,7 +136,7 @@
     git = {
       enable = true;
       userName = "Yawen Guan";
-      userEmail = "yawen.guan.email@gmail.com";
+      userEmail = "yawen.guan@proton.me";
       extraConfig = {
         init.defaultBranch = "main";
       };
