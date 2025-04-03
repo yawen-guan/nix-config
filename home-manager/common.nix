@@ -129,6 +129,8 @@
     rbenv
     # === Java ===
     jdk8
+    # === Rust ===
+    rustup
   ];
 
   programs = {
