@@ -121,6 +121,8 @@
     nix-prefetch-github
     # === Coq ===
     coq
+    coqPackages.serapi
+    coqPackages.equations
     # === Python ===
     pyenv
     # === NodeJS ===
