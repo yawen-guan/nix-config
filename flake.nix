@@ -87,10 +87,11 @@
           specialArgs = {
             inherit inputs outputs;
           };
-          modules = [ 
+          modules = [
             ./macos/configuration.nix
 
-            home-manager.darwinModules.home-manager {
+            home-manager.darwinModules.home-manager
+            {
               users.users.yawen.home = "/Users/yawen";
               home-manager = {
                 # useGlobalPkgs = true; # Check https://github.com/nix-community/home-manager/pull/6172

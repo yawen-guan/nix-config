@@ -108,6 +108,7 @@
     shellcheck
     # === Nix ===
     nixfmt-rfc-style
+    nixfmt-tree
     nix-prefetch-git
     nix-prefetch-github
     # === Coq ===
@@ -159,17 +160,24 @@
       enable = true;
       profiles.default = {
         enableUpdateCheck = false;
-        extensions = (with pkgs.vscode-extensions; [
-          bbenoist.nix
-          vscodevim.vim
-        ]);
+        extensions = (
+          with pkgs.vscode-extensions;
+          [
+            bbenoist.nix
+            vscodevim.vim
+          ]
+        );
         userSettings = {
           "workbench.colorTheme" = "Quiet Light";
           "vim.insertModeKeyBindings" = [
-              { # Exit insert mode with "jk"
-                  "before" = ["j" "k"];
-                  "after" = ["<Esc>"];
-              }
+            {
+              # Exit insert mode with "jk"
+              "before" = [
+                "j"
+                "k"
+              ];
+              "after" = [ "<Esc>" ];
+            }
           ];
           "editor.fontFamily" = "Iosevka";
         };
