@@ -55,9 +55,6 @@
     # ===== Browsers =====
     google-chrome
 
-    # ===== IDEs =====
-    vscode
-
     # ===== Utils =====
     flameshot
     fzf
@@ -150,9 +147,6 @@
         # To get the correct titlebar in Wayland.
         linux_display_server = "x11";
       };
-    };
-    emacs = {
-      enable = true;
     };
   };
 }
