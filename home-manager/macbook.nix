@@ -9,7 +9,7 @@
   ...
 }:
 let
-  common = import ./common.nix {
+  common-all = import ./common/all.nix {
     inherit lib config pkgs;
     homeManagerModules = outputs.homeManagerModules;
     overlays = outputs.overlays;
@@ -28,7 +28,7 @@ in
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    common
+    common-all
     inputs.mac-app-util.homeManagerModules.default
   ];
 
@@ -39,14 +39,14 @@ in
 
   # More packages.
   home.packages = with pkgs; [
-    karabiner-elements
+    # karabiner-elements
     # hello
     # unstable.hello # test
 
     # ===== GUIs =====
-    telegram-desktop
-    zoom-us
-    spotify
+    # telegram-desktop
+    # zoom-us
+    # spotify
   ];
 
   programs.kitty = {

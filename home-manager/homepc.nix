@@ -9,7 +9,7 @@
   ...
 }:
 let
-  common = import ./common.nix {
+  common-all = import ./common/all.nix {
     inherit lib config pkgs;
     homeManagerModules = outputs.homeManagerModules;
     overlays = outputs.overlays;
@@ -28,8 +28,8 @@ in
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    common
-    ./common-linux.nix
+    common-all
+    ./common/linux.nix
   ];
 
   # NixGL Integration.
