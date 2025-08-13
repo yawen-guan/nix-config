@@ -1,6 +1,6 @@
 # Configuration for zsh.
 # Note:
-# - zsh is set to be the default shell using `chsh`. 
+# - zsh is set to be the default shell using `chsh`.
 
 {
   config,
@@ -13,7 +13,7 @@
     enable = true;
 
     # Extra commands for .zshrc file.
-    initExtra = ''
+    initContent = ''
       # doom emacs
       export PATH="$PATH:$HOME/.config/emacs/bin" # doom emacs
       # fix locale

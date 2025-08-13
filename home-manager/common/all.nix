@@ -74,7 +74,7 @@
 
     # ===== Fonts =====
     iosevka
-    nerdfonts
+    nerd-fonts.noto
 
     # === Tex ===
     texlive.combined.scheme-full
@@ -109,7 +109,7 @@
     nix-prefetch-github
     # === Coq ===
     coq
-    coqPackages.serapi
+    # coqPackages.serapi
     coqPackages.equations
     # === Python ===
     pyenv
@@ -153,19 +153,21 @@
     };
     vscode = {
       enable = true;
-      enableUpdateCheck = false;
-      extensions = (with pkgs.vscode-extensions; [
-        bbenoist.nix
-        vscodevim.vim
-      ]);
-      userSettings = {
-        "workbench.colorTheme" = "Quiet Light";
-        "vim.insertModeKeyBindings" = [
-            { # Exit insert mode with "jk"
-                "before" = ["j" "k"];
-                "after" = ["<Esc>"];
-            }
-        ];
+      profiles.default = {
+        enableUpdateCheck = false;
+        extensions = (with pkgs.vscode-extensions; [
+          bbenoist.nix
+          vscodevim.vim
+        ]);
+        userSettings = {
+          "workbench.colorTheme" = "Quiet Light";
+          "vim.insertModeKeyBindings" = [
+              { # Exit insert mode with "jk"
+                  "before" = ["j" "k"];
+                  "after" = ["<Esc>"];
+              }
+          ];
+        };
       };
     };
   };

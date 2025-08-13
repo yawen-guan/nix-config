@@ -19,11 +19,6 @@
     kitty.package = (config.lib.nixGL.wrap pkgs.kitty);
   };
 
-  # Daemons.
-  services = {
-    emacs.enable = true;
-  };
-
   # Make installed apps show up in Gnome.
   # Read: https://github.com/nix-community/home-manager/issues/1439
   xdg.enable = true;
