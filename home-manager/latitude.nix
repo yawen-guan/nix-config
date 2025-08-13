@@ -40,39 +40,22 @@ in
   # programs using the secondary GPU.
   nixGL.packages = inputs.nixgl.packages;
   nixGL.defaultWrapper = "mesa";
-  nixGL.offloadWrapper = "nvidiaPrime";
+  # nixGL.offloadWrapper = "nvidiaPrime";
   nixGL.installScripts = [
     "mesa"
-    "nvidiaPrime"
+    # "nvidiaPrime"
   ];
 
   home = {
     username = "guest";
     homeDirectory = "/home/guest";
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = "23.05";
   };
 
   # More packages.
   home.packages = with pkgs; [
-    # ===== GUIs =====
-
-    # === telegram ===
-    # Gtk-Message: Failed to load module "canberra-gtk-module"
-
-    # === zoom ===
-    # Does not work, installed via apt (check https://zoom.us/download)
-    # (config.lib.nixGL.wrap zoom-us)
-
-    # === typora ===
     (config.lib.nixGL.wrap typora)
-
-    # === spotify ===
-    # Gtk-Message: Failed to load module "canberra-gtk-module"
     (config.lib.nixGL.wrap spotify)
-
-    # === steam ===
-    # (config.lib.nixGL.wrap unstable.steam)
   ];
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
 }

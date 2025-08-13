@@ -35,25 +35,18 @@ in
   home = {
     username = "yawen";
     homeDirectory = "/Users/yawen";
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = "23.05";
   };
 
   # More packages.
   home.packages = with pkgs; [
     # karabiner-elements
-    # hello
-    # unstable.hello # test
-
-    # ===== GUIs =====
-    # telegram-desktop
-    # zoom-us
-    # spotify
+    telegram-desktop
   ];
 
   programs.kitty = {
     package = pkgs.kitty;
     # font.size = "12";
   };
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
 }

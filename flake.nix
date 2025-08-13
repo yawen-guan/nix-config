@@ -1,37 +1,28 @@
-# Forked from: https://github.com/Misterio77/nix-starter-configs
-# Command: home-manager switch --flake .#yawen@infinitybook
-
 {
-  description = "Yawen's nix config";
+  description = "Yawen's Nix Config";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    # You can access packages and modules from different nixpkgs revs
-    # at the same time. Here's an working example:
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
 
-    # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # NixGL
     nixgl = {
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-darwin
     darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     mac-app-util.url = "github:hraban/mac-app-util";
-
   };
 
   outputs =
@@ -88,6 +79,32 @@
         };
       };
 
+      # MacOS configuration entry point
+      # Available through 'sudo darwin-rebuild --flake .#your-hostname'
+      darwinConfigurations = {
+        "yg-macbook" = darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ 
+            ./macos/configuration.nix
+
+            home-manager.darwinModules.home-manager {
+              users.users.yawen.home = "/Users/yawen";
+              home-manager = {
+                # useGlobalPkgs = true; # Check https://github.com/nix-community/home-manager/pull/6172
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs outputs;
+                };
+                users.yawen = import ./home-manager/macbook.nix;
+              };
+            }
+          ];
+        };
+      };
+
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
@@ -104,20 +121,6 @@
             inherit inputs outputs;
           };
           modules = [ ./home-manager/homepc.nix ];
-        };
-        "yawen@yg-macbook" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home-manager/macbook.nix ];
-        };
-        "yawen@thinkpad" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home-manager/thinkpad.nix ];
         };
         "guest@pialex-latitude" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance

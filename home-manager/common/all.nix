@@ -71,10 +71,13 @@
     chezmoi
     tree-sitter
     openconnect
+    ttfautohint
 
     # ===== Fonts =====
     iosevka
     nerd-fonts.noto
+    # nerd-fonts.iosevka
+    nerd-fonts.fira-code
 
     # === Tex ===
     texlive.combined.scheme-full
@@ -124,6 +127,7 @@
   ];
 
   programs = {
+    # Let home manager install and manage itself.
     home-manager.enable = true;
     git = {
       enable = true;
@@ -167,13 +171,9 @@
                   "after" = ["<Esc>"];
               }
           ];
+          "editor.fontFamily" = "Iosevka";
         };
       };
     };
-  };
-
-  # Daemons.
-  services = {
-    emacs.enable = true;
   };
 }

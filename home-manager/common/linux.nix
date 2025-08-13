@@ -8,10 +8,6 @@
   imports = [ ];
 
   home.packages = with pkgs; [
-    # ===== Utils =====
-    # crow-translate
-    # timeshift-minimal
-    ttfautohint
     rsnapshot
   ];
 
