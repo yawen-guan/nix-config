@@ -45,9 +45,6 @@
   };
 
   home.packages = with pkgs; [
-    # ===== Mail =====
-    protonmail-desktop
-
     # ===== PDFs =====
     unstable.zotero
 
@@ -55,34 +52,28 @@
     slack
     discord
 
-    # ===== Notes =====
-    p3x-onenote
-
     # ===== Browsers =====
     google-chrome
 
+    # ===== IDEs =====
+    vscode
+
     # ===== Utils =====
-    todoist-electron
-    # planify
     flameshot
     fzf
     ripgrep
     ripgrep-all
     nettools
-    # crow-translate
     fd
     rsync
-    rsnapshot
-    isync
+    # isync
     autorandr
     # docker
     # docker-compose
     mu
     chezmoi
     tree-sitter
-    # timeshift-minimal
     openconnect
-    vscode
 
     # ===== Fonts =====
     iosevka

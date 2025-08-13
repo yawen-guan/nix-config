@@ -9,10 +9,10 @@
 
   home.packages = with pkgs; [
     # ===== Utils =====
-    # planify
-    crow-translate
-    timeshift-minimal
+    # crow-translate
+    # timeshift-minimal
     ttfautohint
+    rsnapshot
   ];
 
   programs.kitty.package = (config.lib.nixGL.wrap pkgs.kitty);
