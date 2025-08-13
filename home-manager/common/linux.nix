@@ -17,26 +17,11 @@
 
   programs = {
     kitty.package = (config.lib.nixGL.wrap pkgs.kitty);
-    emacs = {
-      enable = true;
-    };
-    vscode = {
-      enable = true;
-      enableUpdateCheck = false;
-      extensions = (with pkgs.vscode-extensions; [
-        bbenoist.nix
-        vscodevim.vim
-      ]);
-      userSettings = {
-        "workbench.colorTheme" = "Quiet Light";
-        "vim.insertModeKeyBindings" = [
-            { # Exit insert mode with "jk"
-                "before" = ["j" "k"];
-                "after" = ["<Esc>"];
-            }
-        ];
-      };
-    };
+  };
+
+  # Daemons.
+  services = {
+    emacs.enable = true;
   };
 
   # Make installed apps show up in Gnome.
