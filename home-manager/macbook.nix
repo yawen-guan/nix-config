@@ -43,6 +43,7 @@ in
   home.packages = with pkgs; [
     # karabiner-elements
     telegram-desktop
+    iterm2
   ];
 
   programs.kitty = {

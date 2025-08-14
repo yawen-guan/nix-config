@@ -74,12 +74,7 @@
     tree-sitter
     openconnect
     ttfautohint
-
-    # ===== Fonts =====
-    iosevka
-    nerd-fonts.noto
-    # nerd-fonts.iosevka
-    nerd-fonts.fira-code
+    ispell
 
     # === Tex ===
     texlive.combined.scheme-full
@@ -95,6 +90,7 @@
     cmake
     cmake-language-server
     libtool
+    glibtool
     clang-tools
     # === OCaml ===
     opam
