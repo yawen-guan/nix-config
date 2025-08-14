@@ -34,13 +34,15 @@
     };
   };
 
-  # Allow packages to discover user fonts.
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      serif = [ "NotoSerif Nerd Font" ];
-      sansSerif = [ "Ubuntu Nerd Font" ];
-      monospace = [ "Ubuntu Nerd Font" ];
+  fonts = {
+    fontconfig = {
+      # Allow packages to discover user fonts.
+      enable = true;
+      defaultFonts = {
+        serif = [ "NotoSerif Nerd Font" ];
+        sansSerif = [ "Ubuntu Nerd Font" ];
+        monospace = [ "Ubuntu Nerd Font" ];
+      };
     };
   };
 

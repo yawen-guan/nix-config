@@ -9,6 +9,13 @@
 
   home.packages = with pkgs; [
     rsnapshot
+
+    # ===== Fonts =====
+    iosevka
+    nerd-fonts.noto
+    nerd-fonts.fira-code
+    nerd-fonts.symbols-only
+    libertinus
   ];
 
   programs = {

@@ -14,6 +14,14 @@
     pkgs.zsh
   ];
 
+  fonts.packages = with pkgs; [
+    iosevka
+    nerd-fonts.noto
+    nerd-fonts.fira-code
+    nerd-fonts.symbols-only
+    libertinus
+  ];
+
   system = {
     # Set Git commit hash for darwin-version.
     # configurationRevision = self.rev or self.dirtyRev or null;
