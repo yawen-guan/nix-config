@@ -44,6 +44,12 @@
         # sets how fast it repeats once it starts.
         KeyRepeat = 3; # normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
       };
+
+      # customize dock
+      dock = {
+        autohide = true;
+        show-recents = true;  # show recent apps
+      };
     };
   };
 
