@@ -42,15 +42,41 @@
         # sets how long it takes before it starts repeating.
         InitialKeyRepeat = 15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms)
         # sets how fast it repeats once it starts.
-        KeyRepeat = 3; # normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
+        KeyRepeat = 2; # normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
       };
 
       # customize dock
       dock = {
         autohide = true;
-        show-recents = true;  # show recent apps
+        show-recents = true; # show recent apps
       };
     };
+  };
+
+  services = {
+    emacs.enable = true;
+    # Replaced by amethyst.
+    # Read: https://github.com/heywoodlh/nixos-builds/blob/master/darwin/wm.nix
+    #   yabai = {
+    #     enable = true;
+    #     package = pkgs.yabai;
+    #     enableScriptingAddition = false;
+    #     extraConfig = ''
+    #       yabai -m config layout floating
+    #     '';
+    #   };
+    #   skhd = {
+    #     enable = true;
+    #     package = pkgs.skhd;
+    #     skhdConfig = ''
+    #       # make floating window fill screen
+    #       ctrl + shift - i : yabai -m window --grid 1:1:0:0:1:1 # the entire screen
+    #       ctrl + shift - h : yabai -m window --grid 1:2:0:0:1:1 # left half
+    #       ctrl + shift - l : yabai -m window --grid 1:2:1:0:1:1 # right half
+    #       ctrl + shift - 9 : yabai -m window --grid 1:3:0:0:1:1 # left one-third
+    #       ctrl + shift - 0 : yabai -m window --grid 1:3:1:0:2:1 # right two-third
+    #     '';
+    #   };
   };
 
   homebrew = {
