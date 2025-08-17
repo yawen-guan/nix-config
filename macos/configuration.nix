@@ -53,6 +53,15 @@
     };
   };
 
+  homebrew = {
+    enable = true;
+    onActivation.autoUpdate = false;
+    casks = [
+      "amethyst"
+      "spotify"
+    ];
+  };
+
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "x86_64-darwin";
 }
