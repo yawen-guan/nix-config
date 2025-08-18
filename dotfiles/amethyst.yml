@@ -66,9 +66,9 @@ cycle-layout:
   key: space
 
 # Move to the previous layout in the list.
-cycle-layout-backward:
-  mod: mod2
-  key: space
+# cycle-layout-backward:
+#   mod: mod2
+#   key: space
 
 # Shrink the main pane by a percentage of the screen dimension as defined by window-resize-step. Note that not all layouts respond to this command.
 shrink-main:
@@ -81,14 +81,14 @@ expand-main:
   key: l
 
 # Increase the number of windows in the main pane. Note that not all layouts respond to this command.
-increase-main:
-  mod: mod1
-  key: ','
+# increase-main:
+#   mod: mod1
+#   key: ','
 
 # Decrease the number of windows in the main pane. Note that not all layouts respond to this command.
-decrease-main:
-  mod: mod1
-  key: '.'
+# decrease-main:
+#   mod: mod1
+#   key: '.'
 
 # General purpose command for custom layouts. Functionality is layout-dependent.
 # command1:
@@ -118,9 +118,9 @@ focus-cw:
   key: k
 
 # Focus the main window in the list.
-focus-main:
-  mod: mod1
-  key: m
+# focus-main:
+#   mod: mod1
+#   key: m
 
 # Focus the next screen in the list going counter-clockwise.
 focus-screen-ccw:
@@ -195,12 +195,12 @@ select-column-layout:
 # Move the currently focused window to the space to the left.
 throw-space-left:
   mod: mod1
-  key: left
+  key: u
 
 # Move currently the focused window to the space to the right.
 throw-space-right:
   mod: mod1
-  key: right
+  key: i
 
 # Toggle the floating state of the currently focused window; i.e., if it was floating make it tiled and if it was tiled make it floating.
 toggle-float:
@@ -208,9 +208,9 @@ toggle-float:
   key: t
 
 # Display the layout HUD with the current layout on each screen.
-display-current-layout:
-  mod: mod1
-  key: i
+# display-current-layout:
+#   mod: mod1
+#   key: i
 
 # Turn on or off tiling entirely.
 toggle-tiling:
