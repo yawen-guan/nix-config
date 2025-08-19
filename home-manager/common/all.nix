@@ -58,6 +58,7 @@
     google-chrome
 
     # ===== Utils =====
+    wget
     flameshot
     fzf
     ripgrep
