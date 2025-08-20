@@ -48,7 +48,7 @@
 
   home.packages = with pkgs; [
     # ===== PDFs =====
-    unstable.zotero
+    unstable.zotero # extensions: zotero-better-bibtex, zotero-style
 
     # ===== IM =====
     slack
