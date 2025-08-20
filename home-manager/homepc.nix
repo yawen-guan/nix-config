@@ -32,13 +32,17 @@ in
   # nixGL.installScripts = [ "nvidia" ];
 
   home = {
-    username = "yawen";
-    homeDirectory = "/home/yawen";
+    username = "miya";
+    homeDirectory = "/home/miya";
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "23.05";
   };
 
+  programs.firefox.enable = true;
+
   # More packages.
   home.packages = with pkgs; [
+    telegram-desktop
+    spotify
   ];
 }
