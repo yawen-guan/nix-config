@@ -128,6 +128,9 @@
     ghc
     haskell-language-server
     cabal-install
+    # ormolu # formatter
+    fourmolu # formatter used by emacs package `apheleia` by default
+    haskellPackages.hoogle
   ];
 
   programs = {
