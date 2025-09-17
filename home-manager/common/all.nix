@@ -125,9 +125,9 @@
     # === Rust ===
     rustup
     # === Haskell ===
-    haskell.compiler.ghc983
-    cabal-install
+    ghc
     haskell-language-server
+    cabal-install
   ];
 
   programs = {
