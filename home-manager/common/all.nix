@@ -124,6 +124,10 @@
     jdk8
     # === Rust ===
     rustup
+    # === Haskell ===
+    haskell.compiler.ghc983
+    cabal-install
+    haskell-language-server
   ];
 
   programs = {
