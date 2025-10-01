@@ -20,6 +20,8 @@
     nerd-fonts.fira-code
     nerd-fonts.symbols-only
     libertinus
+    noto-fonts-cjk-serif
+    noto-fonts-cjk-sans
   ];
 
   system = {
