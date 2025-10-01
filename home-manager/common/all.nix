@@ -76,6 +76,7 @@
     openconnect
     ttfautohint
     ispell
+    graphviz
 
     # === Tex ===
     texlive.combined.scheme-full
