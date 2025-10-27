@@ -77,6 +77,7 @@
     ttfautohint
     ispell
     graphviz
+    inkscape
 
     # === Tex ===
     texlive.combined.scheme-full
