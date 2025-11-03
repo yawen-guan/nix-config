@@ -118,8 +118,9 @@
     coqPackages.equations
     # === Python ===
     pyenv
-    # === NodeJS ===
+    # === Javascript & Typescript ===
     nodejs
+    yarn
     # === Ruby ===
     rbenv
     # === Java ===
