@@ -145,6 +145,7 @@
       userEmail = "yawen.guan@proton.me";
       extraConfig = {
         init.defaultBranch = "main";
+        core.editor = "vim";
       };
     };
     vim.enable = true;
