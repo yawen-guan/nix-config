@@ -36,34 +36,23 @@ in
   ];
 
   home = {
-    username = "yawen";
-    homeDirectory = "/home/yawen";
+    username = "miya";
+    homeDirectory = "/home/miya";
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "23.05";
   };
 
   # More packages.
   home.packages = with pkgs; [
-    vmware-horizon-client
-    z3
-
-    # ===== GUIs =====
-
-    # === telegram ===
-    # Gtk-Message: Failed to load module "canberra-gtk-module"
-
-    # === zoom ===
-    # Does not work, installed via apt (check https://zoom.us/download)
-    # (config.lib.nixGL.wrap zoom-us)
-
-    # === typora ===
-    (config.lib.nixGL.wrap typora)
-
-    # === spotify ===
-    # Gtk-Message: Failed to load module "canberra-gtk-module"
     (config.lib.nixGL.wrap spotify)
+    (config.lib.nixGL.wrap telegram-desktop)
+    input-remapper
 
-    # === steam ===
+    # ===== apt-installed packages =====
+    # zoom-us # https://zoom.us/download
+
+    # ===== other packages =====
+    # (config.lib.nixGL.wrap typora)
     # (config.lib.nixGL.wrap unstable.steam)
   ];
 }

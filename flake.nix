@@ -109,12 +109,12 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "yawen@infinitybook" = home-manager.lib.homeManagerConfiguration {
+        "miya@tuxedo" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = {
             inherit inputs outputs;
           };
-          modules = [ ./home-manager/infinitybook.nix ];
+          modules = [ ./home-manager/tuxedo.nix ];
         };
         "miya@homepc" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
