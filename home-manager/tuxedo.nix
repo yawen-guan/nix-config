@@ -54,4 +54,34 @@ in
     # (config.lib.nixGL.wrap typora)
     # (config.lib.nixGL.wrap unstable.steam)
   ];
+
+  home.file.".local/bin/update-repos-manifest" = {
+    source = ../scripts/update-repos-manifest.sh;
+    executable = true;
+  };
+
+  # Manually run the service: `systemctl --user start update-repos-manifest.service`
+  systemd.user.services.update-repos-manifest = {
+    Unit = {
+      Description = "Update repos manifest";
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${config.home.homeDirectory}/.local/bin/update-repos-manifest";
+    };
+  };
+
+  # Check the timer status: `systemctl --user status update-repos-yaml.timer`
+  systemd.user.timers.update-repos-manifest = {
+    Unit = {
+      Description = "Run update-repos-manifest daily";
+    };
+    Timer = {
+      OnCalendar = "daily";
+      Persistent = true;
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
+  };
 }
