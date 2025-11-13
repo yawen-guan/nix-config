@@ -46,7 +46,6 @@ in
   home.packages = with pkgs; [
     (config.lib.nixGL.wrap spotify)
     (config.lib.nixGL.wrap telegram-desktop)
-    input-remapper
 
     # ===== apt-installed packages =====
     # zoom-us # https://zoom.us/download
