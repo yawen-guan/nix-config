@@ -120,6 +120,7 @@
     pyenv
     # === Javascript & Typescript ===
     nodejs
+    nodePackages.prettier
     yarn
     # === Ruby ===
     rbenv
