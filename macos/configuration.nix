@@ -88,6 +88,7 @@
     casks = [
       "amethyst"
       "spotify"
+      "syncthing"
     ];
   };
 
