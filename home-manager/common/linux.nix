@@ -9,7 +9,6 @@
 
   home.packages = with pkgs; [
     rsnapshot
-    syncthing
 
     # ===== Fonts =====
     iosevka
@@ -21,6 +20,12 @@
 
   programs = {
     kitty.package = (config.lib.nixGL.wrap pkgs.kitty);
+  };
+
+  services = {
+    syncthing = {
+      enable = true;
+    };
   };
 
   # Make installed apps show up in Gnome.
