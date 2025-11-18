@@ -46,12 +46,12 @@ in
   home.packages = with pkgs; [
     (config.lib.nixGL.wrap spotify)
     (config.lib.nixGL.wrap telegram-desktop)
+    (config.lib.nixGL.wrap typora)
 
     # ===== apt-installed packages =====
     # zoom-us # https://zoom.us/download
 
     # ===== other packages =====
-    # (config.lib.nixGL.wrap typora)
     # (config.lib.nixGL.wrap unstable.steam)
   ];
 
