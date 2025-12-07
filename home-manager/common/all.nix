@@ -96,7 +96,7 @@
     glibtool
     clang-tools
     # === OCaml ===
-    opam
+    # opam
     ocaml
     ocamlformat
     ocamlPackages.ocp-indent
