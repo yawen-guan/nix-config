@@ -78,6 +78,7 @@
     ispell
     graphviz
     inkscape
+    diffpdf
 
     # === Tex ===
     texlive.combined.scheme-full

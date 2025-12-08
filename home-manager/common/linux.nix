@@ -15,6 +15,7 @@
     nerd-fonts.noto
     nerd-fonts.fira-code
     nerd-fonts.symbols-only
+    nerd-fonts.inconsolata
     libertinus
   ];
 
