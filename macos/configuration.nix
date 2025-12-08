@@ -22,6 +22,8 @@
     libertinus
     noto-fonts-cjk-serif
     noto-fonts-cjk-sans
+    alegreya
+    alegreya-sans
   ];
 
   system = {

@@ -18,6 +18,8 @@
     nerd-fonts.inconsolata
     noto-fonts-cjk-serif
     libertinus
+    alegreya
+    alegreya-sans
   ];
 
   programs = {
