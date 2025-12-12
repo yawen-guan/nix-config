@@ -79,6 +79,7 @@
     graphviz
     inkscape
     diffpdf
+    pdftk
 
     # === Tex ===
     texlive.combined.scheme-full
