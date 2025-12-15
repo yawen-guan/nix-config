@@ -80,6 +80,8 @@
     inkscape
     diffpdf
     pdftk
+    pdf2svg
+    librsvg
 
     # === Tex ===
     texlive.combined.scheme-full
