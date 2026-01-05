@@ -82,6 +82,7 @@
     pdftk
     pdf2svg
     librsvg
+    shotwell
 
     # === Tex ===
     texlive.combined.scheme-full
