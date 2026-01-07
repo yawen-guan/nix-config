@@ -83,6 +83,7 @@
     pdf2svg
     librsvg
     shotwell
+    diff-pdf
 
     # === Tex ===
     texlive.combined.scheme-full
