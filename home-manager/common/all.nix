@@ -3,11 +3,15 @@
   config,
   pkgs,
   homeManagerModules,
+  sopsModules,
   overlays,
   ...
 }:
 {
-  imports = [ homeManagerModules ];
+  imports = [
+    homeManagerModules
+    sopsModules
+  ];
 
   nixpkgs = {
     # You can add overlays here
@@ -72,6 +76,10 @@
     openconnect
     ttfautohint
     ispell
+    # === Encryption ===
+    age
+    sops
+    ssh-to-age
     # === Image ===
     flameshot
     shotwell

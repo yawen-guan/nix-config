@@ -12,6 +12,7 @@ let
   common-all = import ./common/all.nix {
     inherit lib config pkgs;
     homeManagerModules = outputs.homeManagerModules;
+    sopsModules = inputs.sops-nix.homeManagerModules.sops;
     overlays = outputs.overlays;
   };
 in

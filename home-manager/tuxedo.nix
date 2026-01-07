@@ -12,6 +12,7 @@ let
   common-all = import ./common/all.nix {
     inherit lib config pkgs;
     homeManagerModules = outputs.homeManagerModules;
+    sopsModules = inputs.sops-nix.homeManagerModules.sops;
     overlays = outputs.overlays;
   };
 in
@@ -48,6 +49,8 @@ in
     (config.lib.nixGL.wrap telegram-desktop)
     (config.lib.nixGL.wrap typora)
 
+    restic
+
     # ===== apt-installed packages =====
     # zoom-us # https://zoom.us/download
 
@@ -58,6 +61,24 @@ in
   home.file.".local/bin/update-repos-manifest" = {
     source = ../scripts/update-repos-manifest.sh;
     executable = true;
+  };
+
+  # Read: https://michael.stapelberg.ch/posts/2025-08-24-secret-management-with-sops-nix/
+  sops = {
+    # I derived the age private key from my ssh key using
+    #   ssh-to-age -private-key -i <ssh-private-key-path> -o <age-private-key-path>
+    # To display the age recipient (public key) of this age identity (private key), use:
+    #   age-keygen -y <age-private-key-path>
+    # I stored this public key in .sops.yaml
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+    # To edit the secrets, run:
+    #   sops <secret-yaml-file>
+    # This command will decrypt the file using the private key, open it in an editor,
+    # and encrypt it again once closed.
+    defaultSopsFile = ../secrets/tuxedo.yaml;
+    secrets.restic = {
+      key = "restic";
+    };
   };
 
   # Manually run the service: `systemctl --user start update-repos-manifest.service`
@@ -82,6 +103,40 @@ in
     };
     Install = {
       WantedBy = [ "timers.target" ];
+    };
+  };
+
+  services = {
+    restic = {
+      enable = true;
+      backups.daily = {
+        repository = "/media/miya/LinuxBackup/restic-tuxedo";
+        passwordFile = config.sops.secrets.restic.path;
+        paths = [
+          "${config.home.homeDirectory}/.config"
+          "${config.home.homeDirectory}/Desktops"
+          "${config.home.homeDirectory}/Documents"
+          "${config.home.homeDirectory}/Downloads"
+          "${config.home.homeDirectory}/Pictures"
+          "${config.home.homeDirectory}/Repos"
+          "${config.home.homeDirectory}/Zotero"
+        ];
+        exclude = [
+          "**/.cache"
+          "**/.direnv"
+        ];
+        initialize = true;
+        timerConfig = {
+          OnCalendar = "daily";
+          Persistent = true;
+        };
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-weekly 4"
+          "--keep-monthly 12"
+        ];
+        runCheck = true;
+      };
     };
   };
 }
