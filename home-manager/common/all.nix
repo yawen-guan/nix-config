@@ -47,9 +47,6 @@
   };
 
   home.packages = with pkgs; [
-    # ===== PDFs =====
-    unstable.zotero # extensions: zotero-better-bibtex, zotero-style
-
     # ===== IM =====
     slack
     discord
@@ -59,7 +56,6 @@
 
     # ===== Utils =====
     wget
-    flameshot
     fzf
     ripgrep
     ripgrep-all
@@ -76,19 +72,22 @@
     openconnect
     ttfautohint
     ispell
-    graphviz
+    # === Image ===
+    flameshot
+    shotwell
     inkscape
-    diffpdf
-    pdftk
     pdf2svg
     librsvg
-    shotwell
+    graphviz
+    # === PDF ===
+    unstable.zotero # extensions: zotero-better-bibtex, zotero-style
+    pdftk
+    diffpdf
     diff-pdf
 
+    # ===== Programming =====
     # === Tex ===
     texlive.combined.scheme-full
-
-    # ===== Programming =====
     # === Scala ===
     unstable.scala-next
     # unstable.scala
