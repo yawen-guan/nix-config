@@ -22,6 +22,7 @@
     libertinus
     alegreya
     alegreya-sans
+    source-sans
   ];
 
   programs = {
