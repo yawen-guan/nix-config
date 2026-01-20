@@ -86,6 +86,7 @@
     pdf2svg
     librsvg
     graphviz
+    imagemagick
     # === PDF ===
     unstable.zotero # extensions: zotero-better-bibtex, zotero-style
     pdftk
