@@ -9,6 +9,8 @@
 
   home.packages = with pkgs; [
     rsnapshot
+    shotwell
+    diffpdf
 
     # ===== Fonts =====
     iosevka

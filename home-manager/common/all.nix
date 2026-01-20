@@ -82,7 +82,6 @@
     ssh-to-age
     # === Image ===
     flameshot
-    shotwell
     inkscape
     pdf2svg
     librsvg
@@ -90,7 +89,6 @@
     # === PDF ===
     unstable.zotero # extensions: zotero-better-bibtex, zotero-style
     pdftk
-    diffpdf
     diff-pdf
 
     # ===== Programming =====
