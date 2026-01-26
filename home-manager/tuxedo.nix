@@ -28,13 +28,15 @@ in
   # ("Prime" means it is for secondary GPU). Later, Call `config.lib.nixGL.wrap`
   # for programs using the primary GPU, and `config.lib.nixGL.wrapOffload` for
   # programs using the secondary GPU.
-  nixGL.packages = inputs.nixgl.packages;
-  nixGL.defaultWrapper = "mesa";
-  nixGL.offloadWrapper = "nvidiaPrime";
-  nixGL.installScripts = [
-    "mesa"
-    "nvidiaPrime"
-  ];
+  targets.genericLinux.nixGL = {
+    packages = inputs.nixgl.packages;
+    defaultWrapper = "mesa";
+    # offloadWrapper = "nvidiaPrime";
+    installScripts = [
+      "mesa"
+      # "nvidiaPrime"
+    ];
+  };
 
   home = {
     username = "miya";

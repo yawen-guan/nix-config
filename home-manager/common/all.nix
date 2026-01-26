@@ -154,9 +154,11 @@
     home-manager.enable = true;
     git = {
       enable = true;
-      userName = "Yawen Guan";
-      userEmail = "yawen.guan@proton.me";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Yawen Guan";
+          email = "yawen.guan@proton.me";
+        };
         init.defaultBranch = "main";
         core.editor = "vim";
       };
