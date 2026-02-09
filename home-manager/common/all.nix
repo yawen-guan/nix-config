@@ -76,6 +76,7 @@
     openconnect
     ttfautohint
     ispell
+    git-archive-all
     # === Encryption ===
     age
     sops
