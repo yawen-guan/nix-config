@@ -77,6 +77,7 @@
     ttfautohint
     ispell
     git-archive-all
+    pandoc
     # === Encryption ===
     age
     sops
