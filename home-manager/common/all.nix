@@ -132,6 +132,10 @@
     coqPackages.equations
     # === Python ===
     pyenv
+    # === HTML ===
+    html-tidy
+    # === CSS ===
+    stylelint
     # === Javascript & Typescript ===
     nodejs
     nodePackages.prettier
