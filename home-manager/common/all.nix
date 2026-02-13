@@ -97,8 +97,7 @@
     # === Tex ===
     texlive.combined.scheme-full
     # === Scala ===
-    unstable.scala-next
-    # unstable.scala
+    unstable.scala-next # unstable.scala
     unstable.sbt
     unstable.metals
     unstable.scalafmt
