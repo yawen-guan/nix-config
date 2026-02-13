@@ -71,7 +71,6 @@
     # docker
     # docker-compose
     mu
-    chezmoi
     tree-sitter
     openconnect
     ttfautohint
