@@ -112,15 +112,20 @@ in
     restic = {
       enable = true;
       backups.daily = {
+        # To check the service, run `systemctl --user status restic-backups-daily.service`
         repository = "/media/miya/LinuxBackup/restic-tuxedo";
         passwordFile = config.sops.secrets.restic.path;
         paths = [
           "${config.home.homeDirectory}/.config"
+          "${config.home.homeDirectory}/.ssh"
           "${config.home.homeDirectory}/Desktops"
           "${config.home.homeDirectory}/Documents"
           "${config.home.homeDirectory}/Downloads"
           "${config.home.homeDirectory}/Pictures"
           "${config.home.homeDirectory}/Repos"
+          "${config.home.homeDirectory}/Sync"
+          "${config.home.homeDirectory}/Videos"
+          "${config.home.homeDirectory}/VMs"
           "${config.home.homeDirectory}/Zotero"
         ];
         exclude = [
