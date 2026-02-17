@@ -130,6 +130,7 @@
     coqPackages.equations
     # === Python ===
     pyenv
+    black # formatter
     # === HTML ===
     html-tidy
     # === CSS ===
