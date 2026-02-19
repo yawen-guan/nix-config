@@ -78,8 +78,11 @@ in
     # This command will decrypt the file using the private key, open it in an editor,
     # and encrypt it again once closed.
     defaultSopsFile = ../secrets/tuxedo.yaml;
-    secrets.restic = {
-      key = "restic";
+    secrets = {
+      resticDiskRepo.key = "resticDiskRepo";
+      resticDiskPassword.key = "resticDiskPassword";
+      resticRemoteRepo.key = "resticRemoteRepo";
+      resticRemotePassword.key = "resticRemotePassword";
     };
   };
 
@@ -111,39 +114,58 @@ in
   services = {
     restic = {
       enable = true;
-      backups.daily = {
-        # To check the service, run `systemctl --user status restic-backups-daily.service`
-        repository = "/media/miya/LinuxBackup/restic-tuxedo";
-        passwordFile = config.sops.secrets.restic.path;
-        paths = [
-          "${config.home.homeDirectory}/.config"
-          "${config.home.homeDirectory}/.ssh"
-          "${config.home.homeDirectory}/Desktops"
-          "${config.home.homeDirectory}/Documents"
-          "${config.home.homeDirectory}/Downloads"
-          "${config.home.homeDirectory}/Pictures"
-          "${config.home.homeDirectory}/Repos"
-          "${config.home.homeDirectory}/Sync"
-          "${config.home.homeDirectory}/Videos"
-          "${config.home.homeDirectory}/VMs"
-          "${config.home.homeDirectory}/Zotero"
-        ];
-        exclude = [
-          "**/.cache"
-          "**/.direnv"
-        ];
-        initialize = true;
-        timerConfig = {
-          OnCalendar = "daily";
-          Persistent = true;
+      backups =
+        let
+          backupPaths = [
+            "${config.home.homeDirectory}/.config"
+            "${config.home.homeDirectory}/.ssh"
+            "${config.home.homeDirectory}/Desktops"
+            "${config.home.homeDirectory}/Documents"
+            "${config.home.homeDirectory}/Downloads"
+            "${config.home.homeDirectory}/Pictures"
+            "${config.home.homeDirectory}/Repos"
+            "${config.home.homeDirectory}/Sync"
+            "${config.home.homeDirectory}/Videos"
+            "${config.home.homeDirectory}/VMs"
+            "${config.home.homeDirectory}/Zotero"
+          ];
+          backupExclude = [
+            "**/.cache"
+            "**/.direnv"
+          ];
+          pruneOpts = [
+            "--keep-daily 7"
+            "--keep-weekly 4"
+            "--keep-monthly 12"
+          ];
+          timerConfig = {
+            OnCalendar = "daily";
+            Persistent = true;
+          };
+        in
+        {
+          dailyDisk = {
+            # To check the service, run `systemctl --user status restic-backups-dailyDisk.service`
+            repository = config.sops.secrets.resticDiskRepo.path;
+            passwordFile = config.sops.secrets.resticDiskPassword.path;
+            paths = backupPaths;
+            exclude = backupExclude;
+            initialize = true;
+            timerConfig = timerConfig;
+            pruneOpts = pruneOpts;
+            runCheck = true;
+          };
+          dailyRemote = {
+            repository = config.sops.secrets.resticRemoteRepo.path;
+            passwordFile = config.sops.secrets.resticRemotePassword.path;
+            paths = backupPaths;
+            exclude = backupExclude;
+            initialize = true;
+            timerConfig = timerConfig;
+            pruneOpts = pruneOpts;
+            runCheck = true;
+          };
         };
-        pruneOpts = [
-          "--keep-daily 7"
-          "--keep-weekly 4"
-          "--keep-monthly 12"
-        ];
-        runCheck = true;
-      };
     };
   };
 }
