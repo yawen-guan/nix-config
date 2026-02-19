@@ -125,9 +125,9 @@
     nix-prefetch-git
     nix-prefetch-github
     # === Coq ===
-    coq
-    coqPackages.stdlib
-    coqPackages.equations
+    # coq
+    # coqPackages.stdlib
+    # coqPackages.equations
     # === Python ===
     pyenv
     black # formatter
