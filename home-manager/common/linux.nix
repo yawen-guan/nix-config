@@ -33,6 +33,9 @@
     syncthing = {
       enable = true;
     };
+    copyq = {
+      enable = true;
+    };
   };
 
   # Make installed apps show up in Gnome.
