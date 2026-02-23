@@ -126,7 +126,6 @@ in
             "${config.home.homeDirectory}/Repos"
             "${config.home.homeDirectory}/Sync"
             "${config.home.homeDirectory}/Videos"
-            "${config.home.homeDirectory}/VMs"
             "${config.home.homeDirectory}/Zotero"
           ];
           backupExclude = [
@@ -146,7 +145,7 @@ in
         {
           dailyDisk = {
             # To check the service, run `systemctl --user status restic-backups-dailyDisk.service`
-            repository = config.sops.secrets.resticDiskRepo.path;
+            repository = builtins.readFile config.sops.secrets.resticDiskRepo.path;
             passwordFile = config.sops.secrets.resticDiskPassword.path;
             paths = backupPaths;
             exclude = backupExclude;
@@ -156,7 +155,7 @@ in
             runCheck = true;
           };
           dailyRemote = {
-            repository = config.sops.secrets.resticRemoteRepo.path;
+            repository = builtins.readFile config.sops.secrets.resticRemoteRepo.path;
             passwordFile = config.sops.secrets.resticRemotePassword.path;
             paths = backupPaths;
             exclude = backupExclude;
