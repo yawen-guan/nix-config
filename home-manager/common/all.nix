@@ -94,6 +94,8 @@
     diff-pdf
 
     # ===== Programming =====
+    # === Markdown ===
+    obsidian # knowledage base
     # === Tex ===
     texlive.combined.scheme-full
     # === Scala ===
