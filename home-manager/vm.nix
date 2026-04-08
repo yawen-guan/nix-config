@@ -84,6 +84,7 @@
         };
         init.defaultBranch = "main";
         core.editor = "vim";
+        credential.helper = "store";
       };
     };
     vim.enable = true;
