@@ -22,6 +22,9 @@
       LC_ALL=en_US.UTF-8
       # zsh auto-suggestion text color
       ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=247'
+      # kitty ssh
+      # read: https://wiki.archlinux.org/title/Kitty#Terminal_issues_with_SSH
+      [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
       # pyenv
       export PYENV_ROOT="$HOME/.pyenv"
       [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
