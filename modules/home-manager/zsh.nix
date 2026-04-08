@@ -25,6 +25,11 @@
       # kitty ssh
       # read: https://wiki.archlinux.org/title/Kitty#Terminal_issues_with_SSH
       [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+      # change kitty background when SSHed into this machine
+      if [[ -n "$SSH_CONNECTION" ]]; then
+        printf '\e]11;#31273b\a'
+        trap 'printf "\e]11;#000000\a"' EXIT
+      fi
       # pyenv
       export PYENV_ROOT="$HOME/.pyenv"
       [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
