@@ -197,6 +197,8 @@
           [
             bbenoist.nix
             vscodevim.vim
+            mkhl.direnv
+            rocq-prover.vsrocq
           ]
         );
         userSettings = {
@@ -213,6 +215,13 @@
           ];
           "editor.fontFamily" = "Iosevka";
         };
+        keybindings = [
+          {
+            key = "f s";
+            command = "workbench.action.files.save";
+            when = "editorTextFocus && vim.mode == 'Normal'";
+          }
+        ];
       };
     };
   };
