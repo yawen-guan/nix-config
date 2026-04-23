@@ -126,10 +126,10 @@
     nixfmt-tree
     nix-prefetch-git
     nix-prefetch-github
-    # === Coq ===
-    # coq
-    # coqPackages.stdlib
-    # coqPackages.equations
+    # === Rocq ===
+    rocq-core
+    rocqPackages.stdlib
+    rocqPackages.vsrocq-language-server
     # === Python ===
     pyenv
     black # formatter
