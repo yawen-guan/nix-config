@@ -111,13 +111,13 @@
     clang-tools
     # === OCaml ===
     # opam
-    ocaml
-    ocamlformat
-    ocamlPackages.ocp-indent
-    ocamlPackages.findlib
-    ocamlPackages.dune_3
-    ocamlPackages.utop
-    ocamlPackages.merlin
+    # ocaml
+    # ocamlformat
+    # ocamlPackages.ocp-indent
+    # ocamlPackages.findlib
+    # ocamlPackages.dune_3
+    # ocamlPackages.utop
+    # ocamlPackages.merlin
     # === Shell ===
     shfmt
     shellcheck
@@ -127,9 +127,9 @@
     nix-prefetch-git
     nix-prefetch-github
     # === Rocq ===
-    rocq-core
-    rocqPackages.stdlib
-    rocqPackages.vsrocq-language-server
+    # rocq-core
+    # rocqPackages.stdlib
+    # rocqPackages.vsrocq-language-server
     # === Python ===
     pyenv
     black # formatter
