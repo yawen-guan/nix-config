@@ -23,6 +23,7 @@
     alegreya
     alegreya-sans
     source-sans
+    symbola
   ];
 
   programs = {
