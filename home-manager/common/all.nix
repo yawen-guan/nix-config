@@ -77,6 +77,7 @@
     ispell
     git-archive-all
     pandoc
+    progress
     # === Encryption ===
     age
     sops
