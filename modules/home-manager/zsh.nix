@@ -14,6 +14,8 @@
 
     # Extra commands for .zshrc file.
     initContent = ''
+      # default editor
+      export EDITOR=vim
       # doom emacs
       export PATH="$PATH:$HOME/.config/emacs/bin" # doom emacs
       # fix locale
