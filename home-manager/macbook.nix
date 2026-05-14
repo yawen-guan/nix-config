@@ -45,6 +45,7 @@ in
     # karabiner-elements
     telegram-desktop
     iterm2
+    restic
   ];
 
   home.file.".config/amethyst/amethyst.yml".source = ../dotfiles/amethyst.yml;
@@ -53,4 +54,8 @@ in
     package = pkgs.kitty;
     # font.size = "12";
   };
+
+  # Services like restic that depend on systemd will fail in slience.
+  # See: https://github.com/nix-community/home-manager/issues/7924
+  services = { };
 }
