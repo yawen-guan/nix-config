@@ -11,6 +11,7 @@
     rsnapshot
     shotwell
     diffpdf
+    resources
 
     # ===== Fonts =====
     iosevka
