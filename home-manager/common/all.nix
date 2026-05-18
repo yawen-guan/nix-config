@@ -68,8 +68,6 @@
     rsync
     # isync
     autorandr
-    # docker
-    # docker-compose
     mu
     tree-sitter
     openconnect
@@ -96,6 +94,9 @@
     diff-pdf
 
     # ===== Programming =====
+    # === Docker ===
+    # docker
+    dockfmt
     # === Markdown ===
     obsidian # knowledage base
     # === Tex ===
