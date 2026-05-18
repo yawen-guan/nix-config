@@ -76,6 +76,7 @@
     ttfautohint
     ispell
     git-archive-all
+    git-filter-repo
     pandoc
     progress
     # === Encryption ===
