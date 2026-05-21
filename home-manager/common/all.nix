@@ -165,6 +165,9 @@
     git = {
       enable = true;
       settings = {
+        github.user = "yawen-guan";
+        gitlab.user = "yawen-guan";
+        gitlab."gitlab.epfl.ch".user = "yguan";
         user = {
           name = "Yawen Guan";
           email = "yawen.guan@proton.me";
