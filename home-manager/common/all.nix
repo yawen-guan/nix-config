@@ -220,6 +220,7 @@
             }
           ];
           "editor.fontFamily" = "Iosevka";
+          "vim.useSystemClipboard" = true;
         };
         keybindings = [
           {
