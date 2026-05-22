@@ -50,6 +50,7 @@
   home.packages = with pkgs; [
     # ===== Programming =====
     pyenv
+    uv
 
     # ===== Fonts =====
     iosevka
@@ -62,6 +63,7 @@
     alegreya
     alegreya-sans
     source-sans
+    symbola
 
     # ===== Utils =====
     wget
@@ -73,6 +75,9 @@
     openconnect
     ttfautohint
     ispell
+
+    # ===== GenAI =====
+    codex
   ];
 
   programs = {
