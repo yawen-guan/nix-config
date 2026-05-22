@@ -48,6 +48,9 @@
   };
 
   home.packages = with pkgs; [
+    # ===== Programming =====
+    pyenv
+
     # ===== Fonts =====
     iosevka
     nerd-fonts.noto
