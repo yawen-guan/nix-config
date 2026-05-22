@@ -20,11 +20,18 @@ sudo darwin-rebuild switch --flake .#[your-hostname]
 
 ## On Linux (except NixOS), standalone home-manager
 
-The first time: Run the following command to install home-manager and build the system. 
+### The first time
+Ensure that `nix-command` and `flakes` are enabled: 
+```bash
+# ~/.config/nix/nix.conf
+experimental-features = nix-command flakes
+```
+Run the following command to install home-manager and build the system. 
 ```bash
 nix run home-manager -- switch -b backup --flake .#[your-username]@[your-hostname]
 ```
 
+### Rebuilding
 Then we can use home-manger directly: 
 ```bash
 home-manager switch --flake .#[your-username]@[your-hostname]
