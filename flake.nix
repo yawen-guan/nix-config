@@ -129,7 +129,7 @@
           };
           modules = [ ./home-manager/homepc.nix ];
         };
-        "vmiya@vm-ubuntu-2404" = home-manager.lib.homeManagerConfiguration {
+        "vmiya@vubuntu" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
