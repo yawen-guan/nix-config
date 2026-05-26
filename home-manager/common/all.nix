@@ -221,6 +221,7 @@
           ];
           "editor.fontFamily" = "Iosevka";
           "vim.useSystemClipboard" = true;
+          "editor.unicodeHighlight.ambiguousCharacters" = false;
         };
         keybindings = [
           {
