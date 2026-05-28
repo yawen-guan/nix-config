@@ -205,6 +205,7 @@
             vscodevim.vim
             mkhl.direnv
             rocq-prover.vsrocq
+            ocamllabs.ocaml-platform
           ]
         );
         userSettings = {
