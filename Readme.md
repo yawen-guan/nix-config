@@ -10,7 +10,7 @@ Install [nix](https://nixos.org/download/#nix-install-linux).
 
 The first time: Run the following command to install nix-darwin and build the system.
 ```bash
-sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake .#[your-hostname]
+sudo nix run nix-darwin/nix-darwin-26.05#darwin-rebuild --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake .#[your-hostname]
 ```
 
 Then we can use darwin-rebuild directly: 

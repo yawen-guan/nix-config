@@ -142,7 +142,7 @@
     stylelint
     # === Javascript & Typescript ===
     nodejs
-    nodePackages.prettier
+    # prettier
     yarn
     # === Ruby ===
     rbenv

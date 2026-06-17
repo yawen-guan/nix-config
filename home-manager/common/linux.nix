@@ -29,6 +29,7 @@
 
   programs = {
     kitty.package = (config.lib.nixGL.wrap pkgs.kitty);
+    zsh.dotDir = config.home.homeDirectory;
   };
 
   services = {
