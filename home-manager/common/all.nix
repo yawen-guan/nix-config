@@ -106,6 +106,7 @@
     unstable.sbt
     unstable.metals
     unstable.scalafmt
+    unstable.scala-cli
     # === C / C++ ===
     cmake
     cmake-language-server
