@@ -239,7 +239,7 @@
     };
   };
   xdg.configFile."kitty/ssh.conf".text = ''
-    hostname *
-      color_scheme Base2Tone Mall Dark
+    hostname vm
+      color_scheme Duskfox
   '';
 }
