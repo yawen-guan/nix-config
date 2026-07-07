@@ -126,7 +126,7 @@
     shfmt
     shellcheck
     # === Nix ===
-    nixfmt-rfc-style
+    nixfmt
     nixfmt-tree
     nix-prefetch-git
     nix-prefetch-github
