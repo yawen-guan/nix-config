@@ -13,7 +13,7 @@ The first time: Run the following command to install nix-darwin and build the sy
 sudo nix run nix-darwin/nix-darwin-26.05#darwin-rebuild --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake .#[your-hostname]
 ```
 
-Then we can use darwin-rebuild directly: 
+Then we can use darwin-rebuild directly:
 ```bash
 sudo darwin-rebuild switch --flake .#[your-hostname]
 ```
@@ -21,18 +21,18 @@ sudo darwin-rebuild switch --flake .#[your-hostname]
 ## On Linux (except NixOS), standalone home-manager
 
 ### The first time
-Ensure that `nix-command` and `flakes` are enabled: 
+Ensure that `nix-command` and `flakes` are enabled:
 ```bash
 # ~/.config/nix/nix.conf
 experimental-features = nix-command flakes
 ```
-Run the following command to install home-manager and build the system. 
+Run the following command to install home-manager and build the system.
 ```bash
 nix run home-manager -- switch -b backup --flake .#[your-username]@[your-hostname]
 ```
 
 ### Rebuilding
-Then we can use home-manger directly: 
+Then we can use home-manger directly:
 ```bash
 home-manager switch --flake .#[your-username]@[your-hostname]
 ```
