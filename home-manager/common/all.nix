@@ -226,6 +226,7 @@
           "editor.unicodeHighlight.ambiguousCharacters" = false;
           # Keep the standard theme colors in the terminal.
           "terminal.integrated.minimumContrastRatio" = 1;
+          "workbench.secondarySideBar.defaultVisibility" = "hidden";
         };
         keybindings = [
           {
