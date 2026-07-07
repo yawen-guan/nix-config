@@ -124,6 +124,7 @@ in
             "${config.home.homeDirectory}/Downloads"
             "${config.home.homeDirectory}/Pictures"
             "${config.home.homeDirectory}/Repos"
+            "${config.home.homeDirectory}/VMShared"
             "${config.home.homeDirectory}/Sync"
             "${config.home.homeDirectory}/Videos"
             "${config.home.homeDirectory}/Zotero"
