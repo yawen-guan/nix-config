@@ -113,8 +113,10 @@ in
       backups =
         let
           backupPaths = [
+            "${config.home.homeDirectory}/.authinfo.gpg"
             "${config.home.homeDirectory}/.config"
             "${config.home.homeDirectory}/.ssh"
+            "${config.home.homeDirectory}/.mozilla/firefox"
             "${config.home.homeDirectory}/Desktops"
             "${config.home.homeDirectory}/Documents"
             "${config.home.homeDirectory}/Downloads"
@@ -123,6 +125,7 @@ in
             "${config.home.homeDirectory}/VMshared"
             "${config.home.homeDirectory}/Sync"
             "${config.home.homeDirectory}/Videos"
+            "${config.home.homeDirectory}/.zotero"
             "${config.home.homeDirectory}/Zotero"
           ];
           backupExclude = [
