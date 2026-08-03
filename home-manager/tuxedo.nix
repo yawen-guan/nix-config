@@ -52,11 +52,21 @@ in
     (config.lib.nixGL.wrap typora)
     restic
     wdisplays
+    pavucontrol # used by waybar
 
     # ===== apt-installed packages =====
     # zoom-us # https://zoom.us/download
     # sway
+    # swaylock # needs to be integrate against the system's PAM library
   ];
+
+  programs = {
+    yazi.enable = true;
+    waybar = {
+      enable = true;
+      systemd.enable = true;
+    };
+  };
 
   services = {
     elephant.enable = true;
@@ -67,6 +77,29 @@ in
         # See https://github.com/swaywm/sway/issues/8560#issuecomment-2854142481
         as_window = true;
       };
+    };
+    swayidle = {
+      enable = true;
+      events = [
+        # lock the screen before going to sleep
+        {
+          event = "before-sleep";
+          command = "/usr/bin/swaylock";
+        }
+      ];
+      timeouts = [
+        # first, lock after 5 minutes of idling
+        {
+          timeout = 300;
+          command = "${pkgs.runtimeShell} -c '/usr/bin/swaylock -f &'";
+        }
+        # then, turn off display after another 30 second of idling
+        {
+          timeout = 330;
+          command = "/usr/bin/swaymsg 'output * power off'";
+          resumeCommand = "/usr/bin/swaymsg 'output * power on'";
+        }
+      ];
     };
   };
 
@@ -90,6 +123,14 @@ in
           mode = "3840x2160@60Hz";
         };
       };
+      startup = [
+        {
+          command = "/usr/bin/swaybg -i /home/miya/Pictures/wallpapers/jellyfish.jpg -m fill";
+        }
+        {
+          command = "${config.programs.waybar.package}/bin/waybar";
+        }
+      ];
       # See https://github.com/swaywm/sway/issues/8560#issuecomment-2854142481
       window.commands = [
         {
@@ -99,6 +140,8 @@ in
       ];
       keybindings = lib.mkOptionDefault {
         "Mod4+d" = "exec ${pkgs.bash}/bin/bash -lc 'walker'";
+        "Mod4+u" = "exec ${pkgs.bash}/bin/bash -lc 'walker --provider windows'";
+        "Mod4+Escape" = "exec /usr/bin/swaylock";
       };
     };
   };
