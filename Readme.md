@@ -41,3 +41,10 @@ Note for `miya@tuxedo`: it needs `--impure` because of `home.file.".local/bin/up
 ```bash
 home-manager switch --flake .#[your-username]@[your-hostname] --impure
 ```
+
+## Editing secrets
+
+For example:
+```bash
+sops ./secrets/tuxedo.yaml
+```
