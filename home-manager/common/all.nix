@@ -194,6 +194,7 @@
     };
     emacs = {
       enable = true;
+      package = pkgs.emacs-pgtk; # For wayland
     };
     vscode = {
       enable = true;

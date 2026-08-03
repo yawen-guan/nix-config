@@ -51,10 +51,57 @@ in
     (config.lib.nixGL.wrap telegram-desktop)
     (config.lib.nixGL.wrap typora)
     restic
+    wdisplays
 
     # ===== apt-installed packages =====
     # zoom-us # https://zoom.us/download
+    # sway
   ];
+
+  services = {
+    elephant.enable = true;
+    walker = {
+      enable = true;
+      enableElephantIntegration = true;
+      settings = {
+        # See https://github.com/swaywm/sway/issues/8560#issuecomment-2854142481
+        as_window = true;
+      };
+    };
+  };
+
+  wayland.windowManager.sway = {
+    enable = true;
+    package = null;
+    config = {
+      modifier = "Mod4"; # super key
+      input = {
+        "type:keyboard" = {
+          xkb_options = "ctrl:swapcaps"; # swap ctrl and caps
+        };
+      };
+      output = {
+        "California Institute of Technology 0x1402 Unknown" = {
+          scale = "2";
+          mode = "2880x1800@90Hz";
+        };
+        "LG Electronics LG ULTRAFINE 211MADHQ5B34" = {
+          scale = "2";
+          mode = "3840x2160@60Hz";
+        };
+      };
+      # See https://github.com/swaywm/sway/issues/8560#issuecomment-2854142481
+      window.commands = [
+        {
+          criteria.app_id = "dev.benz.walker";
+          command = "border none, floating enable";
+        }
+      ];
+      keybindings = lib.mkOptionDefault {
+        "Mod4+d" = "exec ${pkgs.bash}/bin/bash -lc 'walker'";
+      };
+    };
+  };
 
   home.file.".local/bin/update-repos-manifest" = {
     source = ../scripts/update-repos-manifest.sh;
