@@ -50,14 +50,10 @@ in
     (config.lib.nixGL.wrap spotify)
     (config.lib.nixGL.wrap telegram-desktop)
     (config.lib.nixGL.wrap typora)
-
     restic
 
     # ===== apt-installed packages =====
     # zoom-us # https://zoom.us/download
-
-    # ===== other packages =====
-    # (config.lib.nixGL.wrap unstable.steam)
   ];
 
   home.file.".local/bin/update-repos-manifest" = {
