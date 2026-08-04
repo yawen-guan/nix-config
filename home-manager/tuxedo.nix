@@ -110,6 +110,18 @@ in
         }
       ];
     };
+    udiskie = {
+      enable = true;
+      automount = true;
+      notify = true;
+      tray = "always";
+      settings = {
+        program_options = {
+          # Lock device after unmounting
+          lock = true;
+        };
+      };
+    };
   };
 
   wayland.windowManager.sway = {
