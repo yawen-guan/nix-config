@@ -75,6 +75,8 @@ in
       enable = true;
       systemd.enable = true;
     };
+    wlogout.enable = true;
+  };
   };
 
   services = {
@@ -167,6 +169,7 @@ in
         "Mod4+d" = "exec walker";
         "Mod4+u" = "exec walker --provider windows";
         "Mod4+Escape" = "exec /usr/bin/swaylock";
+        "Mod4+Shift+Escape" = "exec wlogout";
         "Print" = "exec grimshot savecopy area";
         "Shift+Print" = "exec grimshot copy area";
       };
