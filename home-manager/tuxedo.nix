@@ -61,7 +61,10 @@ in
   ];
 
   programs = {
-    yazi.enable = true;
+    yazi = {
+      enable = true;
+      shellWrapperName = "y";
+    };
     waybar = {
       enable = true;
       systemd.enable = true;
@@ -81,13 +84,10 @@ in
     };
     swayidle = {
       enable = true;
-      events = [
+      events = {
         # lock the screen before going to sleep
-        {
-          event = "before-sleep";
-          command = "/usr/bin/swaylock";
-        }
-      ];
+        before-sleep = "${pkgs.swaylock}/bin/swaylock";
+      };
       timeouts = [
         # first, lock after 5 minutes of idling
         {
