@@ -53,12 +53,18 @@ in
     restic
     wdisplays
     pavucontrol # used by waybar
+    # screenshot
+    sway-contrib.grimshot
 
     # ===== apt-installed packages =====
     # zoom-us # https://zoom.us/download
     # sway
     # swaylock # needs to be integrate against the system's PAM library
   ];
+
+  home.sessionVariables = {
+    XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
+  };
 
   programs = {
     yazi = {
@@ -161,6 +167,8 @@ in
         "Mod4+d" = "exec walker";
         "Mod4+u" = "exec walker --provider windows";
         "Mod4+Escape" = "exec /usr/bin/swaylock";
+        "Print" = "exec grimshot savecopy area";
+        "Shift+Print" = "exec grimshot copy area";
       };
     };
   };
