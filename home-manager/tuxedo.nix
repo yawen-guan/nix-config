@@ -127,9 +127,12 @@ in
         "NIXOS_OZONE_WL"
         "XCURSOR_THEME"
         "XCURSOR_SIZE"
-        # Import PATH so systemd user services (e.g. Walker/Elephant) can launch
-        # nix-installed applications from .desktop files.
+        # Make PATH visible to systemd user services,
+        # so that Walker/Elephant can launch nix-installed applications
         "PATH"
+        # Make desktop-entry directories visible too,
+        # so that Walker/Elephant can find the .desktop files
+        "XDG_DATA_DIRS"
       ];
     };
 
