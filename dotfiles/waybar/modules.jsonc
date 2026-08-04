@@ -1,32 +1,10 @@
 {
-    "hyprland/workspaces": {
+    "idle_inhibitor": {
         "format": "{icon}",
-        "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({workspace = 'e+1'})\"",
-        "on-scroll-up":   "hyprctl dispatch \"hl.dsp.focus({workspace = 'e-1'})\"",
-        "persistent-workspaces": { "*": 5 },
-        "cursor": true,
         "format-icons": {
-            "active": "󰮯",
-            "persistent": "",
-            "empty": ""
-         }
-    },
-
-    "niri/workspaces": {
-        "format": "{icon}",
-        "cursor" : true,
-        "on-scroll-up": "niri msg action focus-workspace-up",
-        "on-scroll-down": "niri msg action focus-workspace-down",
-        "hide-empty": true,
-        "format-icons": {
-            "active": "󰮯",
-            "default": "",
-            "empty": ""
+        "activated": "",
+        "deactivated": ""
         }
-    },
-
-    "hyprland/window" : {
-        "max-length": 45
     },
 
     "cpu": {
@@ -115,7 +93,7 @@
         "format-disabled": "",
         "format-disconnected": "",
         "format-wifi": "",
-        "format-ethernet": "",
+        "format-ethernet": "🌐",
         "tooltip-format": "{essid}\n\nFrequency: {frequency}GHz\nStrength: {signalStrength}%\n\n{bandwidthUpBytes}   {bandwidthDownBytes}",
         "menu": "on-click-right",
         "menu-file": "~/.config/waybar/context/network.xml",
@@ -137,19 +115,17 @@
         "tooltip-format": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}   {device_battery_percentage}%",
-        "on-click": "~/.local/bin/toggle_bluetooth &",
-        "on-click-right": "hyprctl eval \"hl.exec_cmd('blueman-manager')\""
+        "on-click": "swaymsg exec 'walker --provider bluetooth'"
     },
 
     "battery": {
-        "interval": 20,
-        "full-at": 100,
-        "tooltip": true,
-        "format-full": "",
         "format": "{icon} {capacity}%",
-        "format-time": "{H}:{M:02}",
         "format-charging": " {capacity}% ({time})",
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂂", "󰁹"],
+        "format-time": "{H}:{M:02}",
+        "format-full": "{icon}",
+        "full-at": 100,
+        "tooltip": true,
         "states": {
             "warning": 30,
             "critical": 15
@@ -159,8 +135,7 @@
     "clock": {
         "timezone": "Europe/Zurich",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%H:%M %d %B %Y}",
-        "on-click-right": "hyprctl eval \"hl.exec_cmd('alacritty --class=peaclock -e peaclock')\"",
+        "format": "{:%Y-%m-%d %H:%M}",
         "calendar": {
             "mode": "year",
             "weeks-pos": "right",
@@ -185,48 +160,10 @@
         "max-length": 45
     },
 
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}",
-        "format-icons": {
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
-        }
-    },
-
-    "custom/start": {
-        "format": "",
-        "on-click": "~/.config/rofi/bin/drun &"
-    },
-
-    "custom/ctlcenter" : {
+    "custom/notifications" : {
         "tooltip" : false,
-        "format" : "",
-        "on-click" : "swaync-client -t",
-        "menu": "on-click-right",
-        "menu-file": "~/.config/waybar/context/ctlcenter.xml",
-        "menu-actions": {
-            "action-1-1": "hyprctl eval \"hl.exec_cmd('alacritty -e htop')\"",
-            "action-1-2": "hyprctl eval \"hl.exec_cmd('alacritty -e nvtop')\"",
-            "action-1-3": "hyprctl eval \"hl.exec_cmd('alacritty -e pkexec powertop')\"",
-            "action-1-4": "hyprctl eval \"hl.exec_cmd('missioncenter' )\"",
-
-            "action-2-1": "hyprctl eval \"hl.exec_cmd('nwg-look')\"",
-            "action-2-2": "hyprctl eval \"hl.exec_cmd('qt6ct')\"",
-            "action-2-3": "hyprctl eval \"hl.exec_cmd('kvantummanager')\"",
-
-
-            "action-3-1": "~/.local/bin/refreshrate 60",
-  			"action-3-2": "~/.local/bin/refreshrate 90",
-  			"action-3-3": "~/.local/bin/refreshrate 144",
-
-            "action-4-1": "~/.local/bin/caffeine shutdown",
-            "action-4-2": "~/.local/bin/caffeine handle-lid-switch",
-
-            "action-5": "~/.local/bin/powersafe",
-            "action-6": "hyprctl reload"
-  		}
+        "format" : "",
+        "on-click" : "swaync-client -t"
     },
 
     "custom/arrow-left":  {

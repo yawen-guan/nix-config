@@ -55,11 +55,8 @@ in
 
     # used by waybar
     pavucontrol
-    blueman
     peaclock
-    alacritty
     playerctl
-    swaynotificationcenter
 
     # screenshot
     sway-contrib.grimshot
@@ -133,6 +130,9 @@ in
         }
       ];
     };
+    swaync = {
+      enable = true;
+    };
     udiskie = {
       enable = true;
       automount = true;
@@ -144,6 +144,9 @@ in
           lock = true;
         };
       };
+    };
+    network-manager-applet = {
+      enable = true;
     };
   };
 
@@ -207,6 +210,7 @@ in
         "Mod4+d" = "exec walker";
         "Mod4+u" = "exec walker --provider windows";
         "Mod4+c" = "exec walker --provider clipboard";
+        "Mod4+o" = "exec walker --provider bluetooth";
         "Mod4+Escape" = "exec /usr/bin/swaylock";
         "Mod4+Shift+Escape" = "exec wlogout";
         "Print" = "exec grimshot savecopy area";
