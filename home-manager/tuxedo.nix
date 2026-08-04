@@ -76,6 +76,17 @@ in
       systemd.enable = true;
     };
     wlogout.enable = true;
+    swaylock = {
+      enable = true;
+      package = null; # use /usr/bin/swaylock instead
+      settings = {
+        image = "/home/miya/Pictures/wallpapers/jellyfish.jpg";
+        scaling = "fill";
+        indicator-radius = 100;
+        indicator-thickness = 8;
+        show-failed-attempts = true;
+      };
+    };
   };
   };
 
@@ -126,7 +137,7 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = null;
+    package = null; # use /usr/bin/sway instead
     systemd = {
       enable = true;
       variables = [
