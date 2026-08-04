@@ -183,6 +183,7 @@ in
       keybindings = lib.mkOptionDefault {
         "Mod4+d" = "exec walker";
         "Mod4+u" = "exec walker --provider windows";
+        "Mod4+c" = "exec walker --provider clipboard";
         "Mod4+Escape" = "exec /usr/bin/swaylock";
         "Mod4+Shift+Escape" = "exec wlogout";
         "Print" = "exec grimshot savecopy area";
