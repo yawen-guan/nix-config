@@ -73,6 +73,7 @@ in
     walker = {
       enable = true;
       enableElephantIntegration = true;
+      systemd.enable = true;
       settings = {
         # See https://github.com/swaywm/sway/issues/8560#issuecomment-2854142481
         as_window = true;
@@ -106,6 +107,24 @@ in
   wayland.windowManager.sway = {
     enable = true;
     package = null;
+    systemd = {
+      enable = true;
+      variables = [
+        # Default values
+        "DISPLAY"
+        "WAYLAND_DISPLAY"
+        "SWAYSOCK"
+        "XDG_CURRENT_DESKTOP"
+        "XDG_SESSION_TYPE"
+        "NIXOS_OZONE_WL"
+        "XCURSOR_THEME"
+        "XCURSOR_SIZE"
+        # Import PATH so systemd user services (e.g. Walker/Elephant) can launch
+        # nix-installed applications from .desktop files.
+        "PATH"
+      ];
+    };
+
     config = {
       modifier = "Mod4"; # super key
       input = {
@@ -139,8 +158,8 @@ in
         }
       ];
       keybindings = lib.mkOptionDefault {
-        "Mod4+d" = "exec ${pkgs.bash}/bin/bash -lc 'walker'";
-        "Mod4+u" = "exec ${pkgs.bash}/bin/bash -lc 'walker --provider windows'";
+        "Mod4+d" = "exec walker";
+        "Mod4+u" = "exec walker --provider windows";
         "Mod4+Escape" = "exec /usr/bin/swaylock";
       };
     };
