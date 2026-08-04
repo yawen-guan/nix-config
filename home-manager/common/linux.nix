@@ -19,7 +19,9 @@
     nerd-fonts.fira-code
     nerd-fonts.symbols-only
     nerd-fonts.inconsolata
+    nerd-fonts.caskaydia-cove
     noto-fonts-cjk-serif
+    noto-fonts-color-emoji
     libertinus
     alegreya
     alegreya-sans

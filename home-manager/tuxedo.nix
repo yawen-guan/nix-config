@@ -52,7 +52,15 @@ in
     (config.lib.nixGL.wrap typora)
     restic
     wdisplays
-    pavucontrol # used by waybar
+
+    # used by waybar
+    pavucontrol
+    blueman
+    peaclock
+    alacritty
+    playerctl
+    swaynotificationcenter
+
     # screenshot
     sway-contrib.grimshot
 
@@ -88,6 +96,10 @@ in
       };
     };
   };
+
+  xdg.configFile."waybar" = {
+    source = ../dotfiles/waybar;
+    recursive = true;
   };
 
   services = {
