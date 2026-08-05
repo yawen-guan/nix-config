@@ -169,7 +169,8 @@ in
       modifier = "Mod4"; # super key
       input = {
         "type:keyboard" = {
-          xkb_options = "ctrl:swapcaps"; # swap ctrl and caps
+          # swap ctrl and caps, use right alt as compose key
+          xkb_options = "ctrl:swapcaps,compose:ralt";
         };
       };
       output = {
