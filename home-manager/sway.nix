@@ -40,7 +40,12 @@ in
     };
     waybar = {
       enable = true;
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        # Start waybar with the sway-specific session target to avoid launching
+        # it before the wayland session is ready.
+        targets = [ "sway-session.target" ];
+      };
     };
     wlogout.enable = true;
     swaylock = {
@@ -111,6 +116,8 @@ in
       enable = true;
     };
   };
+
+  wayland.systemd.target = "sway-session.target";
 
   wayland.windowManager.sway = {
     enable = true;
