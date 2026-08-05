@@ -203,5 +203,10 @@
         "modules" : [
             "backlight", "backlight/slider"
         ]
+    },
+
+    "sway/language": {
+        "format": "{}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     }
 }
