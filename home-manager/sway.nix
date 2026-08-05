@@ -245,10 +245,44 @@ in
         "Mod4+u" = "exec walker --provider windows";
         "Mod4+c" = "exec walker --provider clipboard";
         "Mod4+o" = "exec walker --provider bluetooth";
-        "Mod4+Shift+comma" = "move container to output left";
-        "Mod4+Shift+period" = "move container to output right";
+        "Mod4+comma" = "focus output left";
+        "Mod4+period" = "focus output right";
+        "Mod4+Shift+comma" = "move container to output left; focus output left";
+        "Mod4+Shift+period" = "move container to output right; focus output right";
+        "Mod4+bracketleft" = "workspace prev_on_output";
+        "Mod4+bracketright" = "workspace next_on_output";
+        "Mod4+Shift+bracketleft" = "move container to workspace prev_on_output; workspace prev_on_output";
+        "Mod4+Shift+bracketright" = "move container to workspace next_on_output; workspace next_on_output";
+        "Mod4+Shift+0" = "move container to workspace number 10; workspace number 10";
+        "Mod4+Shift+1" = "move container to workspace number 1; workspace number 1";
+        "Mod4+Shift+2" = "move container to workspace number 2; workspace number 2";
+        "Mod4+Shift+3" = "move container to workspace number 3; workspace number 3";
+        "Mod4+Shift+4" = "move container to workspace number 4; workspace number 4";
+        "Mod4+Shift+5" = "move container to workspace number 5; workspace number 5";
+        "Mod4+Shift+6" = "move container to workspace number 6; workspace number 6";
+        "Mod4+Shift+7" = "move container to workspace number 7; workspace number 7";
+        "Mod4+Shift+8" = "move container to workspace number 8; workspace number 8";
+        "Mod4+Shift+9" = "move container to workspace number 9; workspace number 9";
+
+        # grouping step 1: select the first window.
+        "Mod4+g" = "unmark group-1; mark group-1";
+        # grouping step 2: group the focused window with the selected window.
+        "Mod4+Shift+g" =
+          "mark group-2; "
+          + "[con_mark=group-1] focus; "
+          + "split horizontal; "
+          + "[con_mark=group-2] focus; "
+          + "move container to mark group-1; "
+          + "[con_mark=group-1] layout tabbed; "
+          + "[con_mark=group-1] focus; "
+          + "unmark group-1; "
+          + "unmark group-2";
+
+        # lock
         "Mod4+Escape" = "exec /usr/bin/swaylock";
+        # logout screen
         "Mod4+Shift+Escape" = "exec wlogout";
+        # screenshots
         "Print" = "exec grimshot savecopy area";
         "Shift+Print" = "exec grimshot copy area";
         # tuxedo F1
