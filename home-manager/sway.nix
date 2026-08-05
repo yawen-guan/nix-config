@@ -22,6 +22,7 @@ in
     pavucontrol
     peaclock
     playerctl
+    brightnessctl
 
     # screenshot
     sway-contrib.grimshot
@@ -221,6 +222,26 @@ in
         "Mod4+Shift+Escape" = "exec wlogout";
         "Print" = "exec grimshot savecopy area";
         "Shift+Print" = "exec grimshot copy area";
+        # tuxedo F1
+        "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
+        # F2
+        "XF86MonBrightnessUp" = "exec brightnessctl set +5%";
+        # F3
+        "XF86Launch1" = "exec /usr/bin/tuxedo-control-center";
+        # F6
+        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        # F7
+        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        # F8
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+";
+        # F9: display configuration
+        "XF86Display" = "exec nwg-displays";
+        # F10: play/pause media
+        "XF86AudioPlay" = "exec playerctl play-pause";
+        # F11: enable/disable Wi-Fi
+        "XF86WLAN" = "exec nmcli radio wifi toggle";
+        # F12
+        "XF86Sleep" = "exec /usr/bin/swaylock";
       };
     };
   };
