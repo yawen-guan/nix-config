@@ -48,3 +48,23 @@ For example:
 ```bash
 sops ./secrets/tuxedo.yaml
 ```
+
+## Using sway with `xdg-desktop-portal-gnome`
+
+Check recent xdg-desktop-portal errors:
+```bash
+journalctl --user -b \
+  -u xdg-desktop-portal.service \
+  -u xdg-desktop-portal-wlr.service \
+  -u xdg-desktop-portal-gtk.service \
+  -u xdg-desktop-portal-gnome.service \
+  --no-pager -o short-precise --since "500 seconds ago"
+```
+
+If there's error `calling StartServiceByName for org.freedesktop.impl.portal.desktop.gnome: Timeout was reached`, according to [comment](https://github.com/flatpak/xdg-desktop-portal/issues/986#issuecomment-1549698643), one walkaround is to switch the system dbus implementation to dbus-broker, by running the following commands:
+
+```bash
+sudo apt install dbus-broker
+sudo systemctl enable --global dbus-broker.service
+sudo systemctl enable dbus-broker.service
+```
