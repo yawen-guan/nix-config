@@ -14,7 +14,7 @@ in
   xdg.portal.enable = false;
 
   home.packages = with pkgs; [
-    wdisplays
+    nwg-displays
 
     # used by waybar
     pavucontrol
@@ -209,4 +209,16 @@ in
     };
   };
 
+  xdg.desktopEntries.nwg-displays = {
+    name = "Nwg-Displays";
+    genericName = "Display Configuration";
+    comment = "Configure monitor layout, resolution, scale, and rotation";
+    exec = "${pkgs.nwg-displays}/bin/nwg-displays";
+    icon = "video-display";
+    terminal = false;
+    categories = [
+      "Settings"
+      "HardwareSettings"
+    ];
+  };
 }
