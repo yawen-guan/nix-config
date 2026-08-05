@@ -20,7 +20,10 @@
     "tray" : {
         "icon-size": 13,
         "spacing": 12,
-        "cursor": true
+        "cursor": true,
+        "icons": {
+            "nm-applet" : "/home/miya/.config/waybar/icons/network.svg"
+        }
     },
 
     "load": {

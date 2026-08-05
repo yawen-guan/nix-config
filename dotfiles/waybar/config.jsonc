@@ -32,7 +32,6 @@
             "bluetooth",
             "group/group-volume",
             "group/group-backlight",
-            "network",
             "tray",
             "sway/language",
             "idle_inhibitor",
