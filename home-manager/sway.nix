@@ -9,6 +9,10 @@ let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/jellyfish.jpg";
 in
 {
+  # Disable home-manager from managing xdg portal and load the system configs.
+  # Read https://github.com/nix-community/home-manager/issues/4922#issuecomment-1900844062
+  xdg.portal.enable = false;
+
   home.packages = with pkgs; [
     wdisplays
 
