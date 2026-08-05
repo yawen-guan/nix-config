@@ -10,7 +10,7 @@ let
   builtinScreen = "California Institute of Technology 0x1402 Unknown";
   externalScreen = "LG Electronics LG ULTRAFINE 211MADHQ5B34";
 
-  # Wrapper for system (apt-installed) sway and swaymsg
+  # Wrapper for system (apt-installed) sway, swaymsg, swaybar
   systemSway = pkgs.runCommand "system-sway" { } ''
     mkdir -p "$out/bin"
 
@@ -24,7 +24,12 @@ let
     exec /usr/bin/swaymsg "$@"
     EOF
 
-    chmod +x "$out/bin/sway" "$out/bin/swaymsg"
+    cat > "$out/bin/swaybar" <<'EOF'
+    #!/bin/sh
+    exec /usr/bin/swaybar "$@"
+    EOF
+
+    chmod +x "$out/bin/"*
   '';
 in
 {
@@ -212,7 +217,6 @@ in
           position = "1440 0";
         };
       };
-      bars = [ ]; # Hide the default swaybar.
       workspaceOutputAssign = [
         {
           workspace = "1";
@@ -223,6 +227,7 @@ in
           output = externalScreen;
         }
       ];
+      bars = [ ]; # No swaybar.
       startup = [
         {
           command = "/usr/bin/swaybg -i ${wallpaper} -m fill";
