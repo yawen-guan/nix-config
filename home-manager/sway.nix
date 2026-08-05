@@ -7,6 +7,8 @@
 
 let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/jellyfish.jpg";
+  builtin_screen = "California Institute of Technology 0x1402 Unknown";
+  external_screen = "LG Electronics LG ULTRAFINE 211MADHQ5B34";
 in
 {
   # Disable home-manager from managing xdg portal and load the system configs.
@@ -174,16 +176,28 @@ in
         };
       };
       output = {
-        "California Institute of Technology 0x1402 Unknown" = {
+        "${builtin_screen}" = {
           scale = "2";
           mode = "2880x1800@90Hz";
+          position = "0 0";
         };
-        "LG Electronics LG ULTRAFINE 211MADHQ5B34" = {
+        "${external_screen}" = {
           scale = "2";
           mode = "3840x2160@60Hz";
+          position = "1440 0";
         };
       };
       bars = [ ]; # Hide the default swaybar.
+      workspaceOutputAssign = [
+        {
+          workspace = "1";
+          output = builtin_screen;
+        }
+        {
+          workspace = "2";
+          output = external_screen;
+        }
+      ];
       startup = [
         {
           command = "/usr/bin/swaybg -i ${wallpaper} -m fill";
@@ -201,6 +215,8 @@ in
         "Mod4+u" = "exec walker --provider windows";
         "Mod4+c" = "exec walker --provider clipboard";
         "Mod4+o" = "exec walker --provider bluetooth";
+        "Mod4+Shift+comma" = "move container to output left";
+        "Mod4+Shift+period" = "move container to output right";
         "Mod4+Escape" = "exec /usr/bin/swaylock";
         "Mod4+Shift+Escape" = "exec wlogout";
         "Print" = "exec grimshot savecopy area";
