@@ -7,8 +7,8 @@
 
 let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/jellyfish.jpg";
-  builtin_screen = "California Institute of Technology 0x1402 Unknown";
-  external_screen = "LG Electronics LG ULTRAFINE 211MADHQ5B34";
+  builtinScreen = "California Institute of Technology 0x1402 Unknown";
+  externalScreen = "LG Electronics LG ULTRAFINE 211MADHQ5B34";
 
   # Wrapper for system (apt-installed) sway and swaymsg
   systemSway = pkgs.runCommand "system-sway" { } ''
@@ -201,12 +201,12 @@ in
         };
       };
       output = {
-        "${builtin_screen}" = {
+        "${builtinScreen}" = {
           scale = "2";
           mode = "2880x1800@90Hz";
           position = "0 0";
         };
-        "${external_screen}" = {
+        "${externalScreen}" = {
           scale = "2";
           mode = "3840x2160@60Hz";
           position = "1440 0";
@@ -216,11 +216,11 @@ in
       workspaceOutputAssign = [
         {
           workspace = "1";
-          output = builtin_screen;
+          output = builtinScreen;
         }
         {
           workspace = "2";
-          output = external_screen;
+          output = externalScreen;
         }
       ];
       startup = [
