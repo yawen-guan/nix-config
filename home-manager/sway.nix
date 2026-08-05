@@ -9,6 +9,23 @@ let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/jellyfish.jpg";
   builtin_screen = "California Institute of Technology 0x1402 Unknown";
   external_screen = "LG Electronics LG ULTRAFINE 211MADHQ5B34";
+
+  # Wrapper for system (apt-installed) sway and swaymsg
+  systemSway = pkgs.runCommand "system-sway" { } ''
+    mkdir -p "$out/bin"
+
+    cat > "$out/bin/sway" <<'EOF'
+    #!/bin/sh
+    exec /usr/bin/sway "$@"
+    EOF
+
+    cat > "$out/bin/swaymsg" <<'EOF'
+    #!/bin/sh
+    exec /usr/bin/swaymsg "$@"
+    EOF
+
+    chmod +x "$out/bin/sway" "$out/bin/swaymsg"
+  '';
 in
 {
   # Disable home-manager from managing xdg portal and load the system configs.
@@ -124,13 +141,20 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = null; # use /usr/bin/sway instead
+
+    # Use /usr/bin/sway instead.
+    package = systemSway;
+
+    # Config validation runs inside the Nix sandbox, where /usr/bin/sway
+    # is unavailable.
+    checkConfig = false;
 
     # Read https://wiki.archlinux.org/title/Sway#Configuration
     extraConfig = ''
       include /etc/sway/config.d/*
     '';
 
+    # Note that setting `package = null` will disable `extraSessionCommands`.
     # One can print sway PATH by running:
     #   `sway_pid=$(pgrep -xo sway) tr '\0' '\n' < "/proc/$sway_pid/environ" | sed -n 's/^PATH=//p'`
     extraSessionCommands = ''
