@@ -183,6 +183,7 @@ in
           mode = "3840x2160@60Hz";
         };
       };
+      bars = [ ]; # Hide the default swaybar.
       startup = [
         {
           command = "/usr/bin/swaybg -i ${wallpaper} -m fill";
