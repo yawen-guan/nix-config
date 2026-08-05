@@ -122,6 +122,18 @@ in
   wayland.windowManager.sway = {
     enable = true;
     package = null; # use /usr/bin/sway instead
+
+    # Read https://wiki.archlinux.org/title/Sway#Configuration
+    extraConfig = ''
+      include /etc/sway/config.d/*
+    '';
+
+    # One can print sway PATH by running:
+    #   `sway_pid=$(pgrep -xo sway) tr '\0' '\n' < "/proc/$sway_pid/environ" | sed -n 's/^PATH=//p'`
+    extraSessionCommands = ''
+      export PATH=\"${config.home.profileDirectory}/bin:/nix/var/nix/profiles/default/bin:$PATH\"
+    '';
+
     systemd = {
       enable = true;
       variables = [
@@ -140,6 +152,16 @@ in
         # Make desktop-entry directories visible too,
         # so that Walker/Elephant can find the .desktop files
         "XDG_DATA_DIRS"
+      ];
+      # One can print systemd PATH by running:
+      #   `systemctl --user show-environment | sed -n 's/^PATH=//p'`
+      extraCommands = [
+        "systemctl --user set-environment PATH=${config.home.profileDirectory}/bin:/nix/var/nix/profiles/default/bin:$PATH"
+        # Default values
+        "systemctl --user reset-failed"
+        "systemctl --user start sway-session.target"
+        "swaymsg -mt subscribe '[]' || true"
+        "systemctl --user stop sway-session.target"
       ];
     };
 
