@@ -185,7 +185,10 @@
     };
     kitty = {
       enable = true;
-      font.name = "Iosevka";
+      font = {
+        name = "Iosevka";
+        size = 9;
+      };
       settings = {
         enabled_layouts = "horizontal,stack,splits,tall,fat,vertical";
       };

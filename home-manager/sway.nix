@@ -94,7 +94,7 @@ in
     NIXOS_OZONE_WL = "1"; # ozone wayland support
 
     # fcitx5 is installed via apt:
-    #   sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-rime
+    #   sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-rime fcitx5-mozc
     XMODIFIERS = "@im=fcitx";
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";

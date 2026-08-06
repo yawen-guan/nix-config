@@ -27,6 +27,8 @@
     alegreya-sans
     source-sans
     symbola
+    # chinese
+    lxgw-wenkai
   ];
 
   programs = {
