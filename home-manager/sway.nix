@@ -126,7 +126,7 @@ in
       enable = true;
       events = {
         # lock the screen before going to sleep
-        before-sleep = "${pkgs.swaylock}/bin/swaylock";
+        before-sleep = "/usr/bin/swaylock";
       };
       timeouts = [
         # first, lock after 5 minutes of idling
