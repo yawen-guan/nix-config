@@ -90,7 +90,16 @@ in
 
   home.sessionVariables = {
     XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
+
     NIXOS_OZONE_WL = "1"; # ozone wayland support
+
+    # fcitx5 is installed via apt:
+    #   sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-rime
+    # TODO: sway 1.9 does not support IME popups used for CJK. Upgrade to sway >= 1.10.
+    XMODIFIERS = "@im=fcitx";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    SDL_IM_MODULE = "fcitx";
   };
 
   programs = {
@@ -255,6 +264,9 @@ in
       startup = [
         {
           command = "/usr/bin/swaybg -i ${wallpaper} -m fill";
+        }
+        {
+          command = "/usr/bin/fcitx5 -d";
         }
       ];
       # See https://github.com/swaywm/sway/issues/8560#issuecomment-2854142481
