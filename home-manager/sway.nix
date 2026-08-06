@@ -276,6 +276,7 @@ in
         }
       ];
       keybindings = lib.mkOptionDefault {
+        "Mod4+Return" = "exec kitty";
         "Mod4+d" = "exec walker";
         "Mod4+u" = "exec walker --provider windows";
         "Mod4+c" = "exec walker --provider clipboard";
