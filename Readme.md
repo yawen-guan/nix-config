@@ -68,3 +68,15 @@ sudo apt install dbus-broker
 sudo systemctl enable --global dbus-broker.service
 sudo systemctl enable dbus-broker.service
 ```
+
+## Zoom screen sharing in Wayland
+
+Make sure that `xdg-desktop-portal-wlr` is installed and running:
+```bash
+sudo apt install xdg-desktop-portal-wlr
+systemctl --user status xdg-desktop-portal-wlr.service
+```
+
+Install `zoom` using the official deb, see https://zoom.us/download.
+
+Note that only desktop capture is supported, window capture is not supported.
