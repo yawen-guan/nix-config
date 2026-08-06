@@ -16,6 +16,15 @@ let
 
     cat > "$out/bin/sway" <<'EOF'
     #!/bin/sh
+    add_to_path() {
+      case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="$1:$PATH" ;;
+      esac
+    }
+    add_to_path "${config.home.profileDirectory}/bin"
+    add_to_path "/nix/var/nix/profiles/default/bin"
+    export PATH
     exec /usr/bin/sway "$@"
     EOF
 
@@ -36,6 +45,17 @@ in
   # Disable home-manager from managing xdg portal and load the system configs.
   # Read https://github.com/nix-community/home-manager/issues/4922#issuecomment-1900844062
   xdg.portal.enable = false;
+
+  # Need to copy it to /usr/share once:
+  #  sudo cp $HOME/.local/share/wayland-sessions/sway-home-manager.desktop /usr/share/wayland-sessions/sway-home-manager.desktop
+  xdg.dataFile."wayland-sessions/sway-home-manager.desktop".text = ''
+    [Desktop Entry]
+    Name=Sway (Home Manager)
+    Comment=Sway using the Home Manager wrapper
+    Exec=${config.home.profileDirectory}/bin/sway
+    Type=Application
+    DesktopNames=sway
+  '';
 
   home.packages = with pkgs; [
     nwg-displays
@@ -144,6 +164,12 @@ in
 
   wayland.systemd.target = "sway-session.target";
 
+  # Debug note:
+  # One can print systemd PATH by running:
+  #   `systemctl --user show-environment | sed -n 's/^PATH=//p'`
+  # One can print sway PATH by running:
+  #   `sway_pid=$(pgrep -xo sway) tr '\0' '\n' < "/proc/$sway_pid/environ" | sed -n 's/^PATH=//p'`
+  # Both of them should have the nix paths.
   wayland.windowManager.sway = {
     enable = true;
 
@@ -157,13 +183,6 @@ in
     # Read https://wiki.archlinux.org/title/Sway#Configuration
     extraConfig = ''
       include /etc/sway/config.d/*
-    '';
-
-    # Note that setting `package = null` will disable `extraSessionCommands`.
-    # One can print sway PATH by running:
-    #   `sway_pid=$(pgrep -xo sway) tr '\0' '\n' < "/proc/$sway_pid/environ" | sed -n 's/^PATH=//p'`
-    extraSessionCommands = ''
-      export PATH=\"${config.home.profileDirectory}/bin:/nix/var/nix/profiles/default/bin:$PATH\"
     '';
 
     systemd = {
@@ -184,16 +203,6 @@ in
         # Make desktop-entry directories visible too,
         # so that Walker/Elephant can find the .desktop files
         "XDG_DATA_DIRS"
-      ];
-      # One can print systemd PATH by running:
-      #   `systemctl --user show-environment | sed -n 's/^PATH=//p'`
-      extraCommands = [
-        "systemctl --user set-environment PATH=${config.home.profileDirectory}/bin:/nix/var/nix/profiles/default/bin:$PATH"
-        # Default values
-        "systemctl --user reset-failed"
-        "systemctl --user start sway-session.target"
-        "swaymsg -mt subscribe '[]' || true"
-        "systemctl --user stop sway-session.target"
       ];
     };
 
