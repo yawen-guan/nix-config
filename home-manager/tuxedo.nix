@@ -146,7 +146,7 @@ in
         {
           dailyDisk = {
             # To check the service, run `systemctl --user status restic-backups-dailyDisk.service`
-            repository = builtins.readFile config.sops.secrets.resticDiskRepo.path;
+            repositoryFile = config.sops.secrets.resticDiskRepo.path;
             passwordFile = config.sops.secrets.resticDiskPassword.path;
             paths = backupPaths;
             exclude = backupExclude;
@@ -156,7 +156,7 @@ in
             runCheck = true;
           };
           dailyRemote = {
-            repository = builtins.readFile config.sops.secrets.resticRemoteRepo.path;
+            repositoryFile = config.sops.secrets.resticRemoteRepo.path;
             passwordFile = config.sops.secrets.resticRemotePassword.path;
             paths = backupPaths;
             exclude = backupExclude;
