@@ -117,7 +117,7 @@ in
             "${config.home.homeDirectory}/.config"
             "${config.home.homeDirectory}/.ssh"
             "${config.home.homeDirectory}/.mozilla/firefox"
-            "${config.home.homeDirectory}/Desktops"
+            "${config.home.homeDirectory}/Desktop"
             "${config.home.homeDirectory}/Documents"
             "${config.home.homeDirectory}/Downloads"
             "${config.home.homeDirectory}/Pictures"
