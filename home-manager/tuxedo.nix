@@ -48,7 +48,6 @@ in
 
   # More packages.
   home.packages = with pkgs; [
-    (config.lib.nixGL.wrap spotify)
     (config.lib.nixGL.wrap telegram-desktop)
     (config.lib.nixGL.wrap typora)
     restic

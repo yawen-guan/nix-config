@@ -40,6 +40,17 @@ let
 
     chmod +x "$out/bin/"*
   '';
+
+  spotifyWayland = pkgs.symlinkJoin {
+    name = "spotify-wayland";
+    paths = [ (config.lib.nixGL.wrap pkgs.spotify) ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/spotify \
+        --unset DISPLAY
+    '';
+  };
+
 in
 {
   # Disable home-manager from managing xdg portal and load the system configs.
@@ -58,6 +69,8 @@ in
   '';
 
   home.packages = with pkgs; [
+    spotifyWayland
+
     nwg-displays
 
     # used by waybar
