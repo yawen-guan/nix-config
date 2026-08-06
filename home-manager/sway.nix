@@ -41,6 +41,7 @@ let
     chmod +x "$out/bin/"*
   '';
 
+  # Read https://github.com/NixOS/nixpkgs/issues/531950; may not need it later.
   spotifyWayland = pkgs.symlinkJoin {
     name = "spotify-wayland";
     paths = [ (config.lib.nixGL.wrap pkgs.spotify) ];
@@ -89,6 +90,7 @@ in
 
   home.sessionVariables = {
     XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
+    NIXOS_OZONE_WL = "1"; # ozone wayland support
   };
 
   programs = {
