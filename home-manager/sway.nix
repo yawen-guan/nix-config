@@ -95,7 +95,6 @@ in
 
     # fcitx5 is installed via apt:
     #   sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-rime
-    # TODO: sway 1.9 does not support IME popups used for CJK. Upgrade to sway >= 1.10.
     XMODIFIERS = "@im=fcitx";
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";

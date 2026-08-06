@@ -32,7 +32,6 @@
             "group/group-volume",
             "group/group-backlight",
             "tray",
-            "sway/language",
             "idle_inhibitor",
             "battery"
         ]
