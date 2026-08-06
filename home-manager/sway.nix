@@ -86,6 +86,7 @@ in
     # ===== apt-installed packages =====
     # sway
     # swaylock # needs to be integrate against the system's PAM library
+    # btop # resource monitor
   ];
 
   home.sessionVariables = {
