@@ -188,8 +188,6 @@
       font.name = "Iosevka";
       settings = {
         enabled_layouts = "horizontal,stack,splits,tall,fat,vertical";
-        # To get the correct titlebar in Wayland.
-        linux_display_server = "x11";
       };
     };
     emacs = {
