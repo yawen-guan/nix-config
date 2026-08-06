@@ -236,6 +236,10 @@ in
           # swap ctrl and caps, use right alt as compose key
           xkb_options = "ctrl:swapcaps,compose:ralt";
         };
+        "type:touchpad" = {
+          tap = "enabled";
+          natural_scroll = "enabled";
+        };
       };
       output = {
         "${builtinScreen}" = {
