@@ -184,6 +184,9 @@ in
     network-manager-applet = {
       enable = true;
     };
+    blueman-applet = {
+      enable = true;
+    };
   };
 
   wayland.systemd.target = "sway-session.target";
