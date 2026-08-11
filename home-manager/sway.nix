@@ -309,6 +309,8 @@ in
         "Mod4+Shift+7" = "move container to workspace number 7; workspace number 7";
         "Mod4+Shift+8" = "move container to workspace number 8; workspace number 8";
         "Mod4+Shift+9" = "move container to workspace number 9; workspace number 9";
+        "Mod4+minus" = "move scratchpad";
+        "Mod4+plus" = "scratchpad show";
 
         # grouping step 1: select the first window.
         "Mod4+g" = "unmark group-1; mark group-1";
