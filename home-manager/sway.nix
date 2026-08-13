@@ -136,7 +136,11 @@ in
   };
 
   services = {
-    elephant.enable = true;
+    elephant = {
+      enable = true;
+      # Use unstable to avoid https://github.com/abenz1267/elephant/issues/270
+      package = pkgs.unstable.elephant;
+    };
     walker = {
       enable = true;
       enableElephantIntegration = true;
