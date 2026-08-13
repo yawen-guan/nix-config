@@ -299,11 +299,12 @@ in
         "Mod4+period" = "focus output right";
         "Mod4+Shift+comma" = "move container to output left; focus output left";
         "Mod4+Shift+period" = "move container to output right; focus output right";
+        "Mod4+Shift+9" = "move workspace to output left";
+        "Mod4+Shift+0" = "move workspace to output right";
         "Mod4+bracketleft" = "workspace prev_on_output";
         "Mod4+bracketright" = "workspace next_on_output";
         "Mod4+Shift+bracketleft" = "move container to workspace prev_on_output; workspace prev_on_output";
         "Mod4+Shift+bracketright" = "move container to workspace next_on_output; workspace next_on_output";
-        "Mod4+Shift+0" = "move container to workspace number 10; workspace number 10";
         "Mod4+Shift+1" = "move container to workspace number 1; workspace number 1";
         "Mod4+Shift+2" = "move container to workspace number 2; workspace number 2";
         "Mod4+Shift+3" = "move container to workspace number 3; workspace number 3";
@@ -312,7 +313,6 @@ in
         "Mod4+Shift+6" = "move container to workspace number 6; workspace number 6";
         "Mod4+Shift+7" = "move container to workspace number 7; workspace number 7";
         "Mod4+Shift+8" = "move container to workspace number 8; workspace number 8";
-        "Mod4+Shift+9" = "move container to workspace number 9; workspace number 9";
         "Mod4+minus" = "move scratchpad";
         "Mod4+plus" = "scratchpad show";
 
