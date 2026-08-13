@@ -15,6 +15,7 @@
 
     # ===== Fonts =====
     iosevka
+    julia-mono
     nerd-fonts.noto
     nerd-fonts.fira-code
     nerd-fonts.symbols-only
