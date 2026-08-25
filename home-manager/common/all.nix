@@ -89,7 +89,7 @@
     graphviz
     imagemagick
     # === PDF ===
-    unstable.zotero # extensions: zotero-better-bibtex, zotero-style
+    zotero # extensions: zotero-better-bibtex, zotero-style
     pdftk
     diff-pdf
 
