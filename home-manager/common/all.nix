@@ -145,8 +145,6 @@
     nodejs
     # prettier
     yarn
-    # === Ruby ===
-    rbenv
     # === Java ===
     jdk8
     # === Rust ===
