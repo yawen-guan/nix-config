@@ -41,7 +41,7 @@
       # Incomplete list of macOS `defaults` commands :
       #   https://github.com/yannbertrand/macos-defaults
       NSGlobalDomain = {
-        "com.apple.swipescrolldirection" = false;  # disable natural scrolling
+        "com.apple.swipescrolldirection" = false; # disable natural scrolling
         # If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.
         # This is very useful for vim users, they use `hjkl` to move cursor.
         # sets how long it takes before it starts repeating.
