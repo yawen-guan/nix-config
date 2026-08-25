@@ -27,7 +27,10 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
-    mac-app-util.url = "github:hraban/mac-app-util";
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+    };
   };
 
   outputs =
