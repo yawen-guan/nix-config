@@ -55,9 +55,6 @@
     slack
     discord
 
-    # ===== Browsers =====
-    google-chrome
-
     # ===== Utils =====
     wget
     fzf

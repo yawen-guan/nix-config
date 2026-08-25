@@ -31,6 +31,9 @@
     # chinese
     lxgw-wenkai
 
+    # ===== Browsers =====
+    google-chrome
+
     # ===== Programming =====
     # === Docker ===
     # docker # installed rootless mode following https://docs.docker.com/engine/security/rootless/

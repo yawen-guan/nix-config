@@ -95,6 +95,7 @@
       "amethyst"
       "spotify"
       "syncthing"
+      "google-chrome"
     ];
   };
 
