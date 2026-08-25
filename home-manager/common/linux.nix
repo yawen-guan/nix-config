@@ -62,9 +62,6 @@
     # ocamlPackages.dune_3
     # ocamlPackages.utop
     # ocamlPackages.merlin
-    # === Python ===
-    pyenv
-    black # formatter
     # === Scala ===
     unstable.scala-next # unstable.scala
     unstable.sbt

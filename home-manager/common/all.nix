@@ -106,6 +106,9 @@
     nixfmt-tree
     nix-prefetch-git
     nix-prefetch-github
+    # === Python ===
+    pyenv
+    black # formatter
     # === Shell ===
     shfmt
     shellcheck
