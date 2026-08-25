@@ -33,6 +33,9 @@ in
     inputs.mac-app-util.homeManagerModules.default
   ];
 
+  # Because of sbcl-2.6.4 issue: https://github.com/hraban/mac-app-util/issues/45
+  targets.darwin.mac-app-util.enable = false;
+
   home = {
     username = "yawen";
     homeDirectory = "/Users/yawen";
