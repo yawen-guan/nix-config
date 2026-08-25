@@ -77,6 +77,7 @@
   programs = {
     kitty.package = (config.lib.nixGL.wrap pkgs.kitty);
     zsh.dotDir = config.home.homeDirectory;
+    emacs.package = pkgs.emacs-pgtk; # For wayland
   };
 
   services = {

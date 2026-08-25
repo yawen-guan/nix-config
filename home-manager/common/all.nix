@@ -147,10 +147,7 @@
         enabled_layouts = "horizontal,stack,splits,tall,fat,vertical";
       };
     };
-    emacs = {
-      enable = true;
-      package = pkgs.emacs-pgtk; # For wayland
-    };
+    emacs.enable = true;
     vscode = {
       enable = true;
       profiles.default = {
