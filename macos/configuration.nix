@@ -1,6 +1,8 @@
 # MacOS's System Configuration
 { pkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = (with pkgs; [ vim ]);
@@ -24,6 +26,7 @@
     noto-fonts-cjk-sans
     alegreya
     alegreya-sans
+    symbola
   ];
 
   system = {
