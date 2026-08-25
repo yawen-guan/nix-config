@@ -30,6 +30,48 @@
     symbola
     # chinese
     lxgw-wenkai
+
+    # ===== Programming =====
+    # === Docker ===
+    # docker # installed rootless mode following https://docs.docker.com/engine/security/rootless/
+    dockfmt
+    # === Haskell ===
+    ghc
+    haskell-language-server
+    cabal-install
+    # ormolu # formatter
+    fourmolu # formatter used by emacs package `apheleia` by default
+    haskellPackages.hoogle
+    # === Javascript & Typescript ===
+    nodejs
+    # prettier
+    yarn
+    # === Java ===
+    jdk8
+    # === Markdown ===
+    obsidian # knowledage base
+    # === OCaml ===
+    opam
+    # ocaml
+    # ocamlformat
+    # ocamlPackages.ocp-indent
+    # ocamlPackages.findlib
+    # ocamlPackages.dune_3
+    # ocamlPackages.utop
+    # ocamlPackages.merlin
+    # === Python ===
+    pyenv
+    black # formatter
+    # === Scala ===
+    unstable.scala-next # unstable.scala
+    unstable.sbt
+    unstable.metals
+    unstable.scalafmt
+    unstable.scala-cli
+    # === Rust ===
+    # rustup
+    # === Tex ===
+    texlive.combined.scheme-full
   ];
 
   programs = {

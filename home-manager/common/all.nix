@@ -94,68 +94,24 @@
     diff-pdf
 
     # ===== Programming =====
-    # === Docker ===
-    # docker
-    dockfmt
-    # === Markdown ===
-    obsidian # knowledage base
-    # === Tex ===
-    texlive.combined.scheme-full
-    # === Scala ===
-    unstable.scala-next # unstable.scala
-    unstable.sbt
-    unstable.metals
-    unstable.scalafmt
-    unstable.scala-cli
     # === C / C++ ===
     cmake
     cmake-language-server
     libtool
     glibtool
     clang-tools
-    # === OCaml ===
-    opam
-    # ocaml
-    # ocamlformat
-    # ocamlPackages.ocp-indent
-    # ocamlPackages.findlib
-    # ocamlPackages.dune_3
-    # ocamlPackages.utop
-    # ocamlPackages.merlin
-    # === Shell ===
-    shfmt
-    shellcheck
+    # === CSS ===
+    stylelint
+    # === HTML ===
+    html-tidy
     # === Nix ===
     nixfmt
     nixfmt-tree
     nix-prefetch-git
     nix-prefetch-github
-    # === Rocq ===
-    # rocq-core
-    # rocqPackages.stdlib
-    # rocqPackages.vsrocq-language-server
-    # === Python ===
-    pyenv
-    black # formatter
-    # === HTML ===
-    html-tidy
-    # === CSS ===
-    stylelint
-    # === Javascript & Typescript ===
-    nodejs
-    # prettier
-    yarn
-    # === Java ===
-    jdk8
-    # === Rust ===
-    rustup
-    # === Haskell ===
-    ghc
-    haskell-language-server
-    cabal-install
-    # ormolu # formatter
-    fourmolu # formatter used by emacs package `apheleia` by default
-    haskellPackages.hoogle
+    # === Shell ===
+    shfmt
+    shellcheck
   ];
 
   programs = {
