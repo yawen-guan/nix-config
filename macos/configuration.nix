@@ -62,7 +62,8 @@
   };
 
   services = {
-    emacs.enable = true;
+    # emacs.enable = true;
+    #
     # Replaced by amethyst.
     # Read: https://github.com/heywoodlh/nixos-builds/blob/master/darwin/wm.nix
     #   yabai = {
