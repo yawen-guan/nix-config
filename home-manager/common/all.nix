@@ -101,6 +101,10 @@
     stylelint
     # === HTML ===
     html-tidy
+    # === Javascript & Typescript ===
+    nodejs
+    # prettier
+    yarn
     # === Nix ===
     nixfmt
     nixfmt-tree

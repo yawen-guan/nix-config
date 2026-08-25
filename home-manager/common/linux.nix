@@ -45,10 +45,6 @@
     # ormolu # formatter
     fourmolu # formatter used by emacs package `apheleia` by default
     haskellPackages.hoogle
-    # === Javascript & Typescript ===
-    nodejs
-    # prettier
-    yarn
     # === Java ===
     jdk8
     # === Markdown ===
