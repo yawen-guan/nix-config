@@ -73,6 +73,7 @@ in
     spotifyWayland
 
     nwg-displays
+    wl-clipboard
 
     # used by waybar
     pavucontrol
@@ -189,6 +190,9 @@ in
       enable = true;
     };
     blueman-applet = {
+      enable = true;
+    };
+    cliphist = {
       enable = true;
     };
   };
