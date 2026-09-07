@@ -78,7 +78,7 @@
     ispell
 
     # ===== GenAI =====
-    codex
+    unstable.codex
   ];
 
   programs = {
