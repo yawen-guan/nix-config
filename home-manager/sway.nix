@@ -73,6 +73,7 @@ in
     spotifyWayland
 
     nwg-displays
+    wl-mirror
     wl-clipboard
 
     # used by waybar
