@@ -151,6 +151,7 @@
         enabled_layouts = "horizontal,stack,splits,tall,fat,vertical";
       };
     };
+    tmux.enable = true;
     emacs.enable = true;
     vscode = {
       enable = true;
