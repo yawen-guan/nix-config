@@ -12,6 +12,7 @@
     shotwell
     diffpdf
     resources
+    libreoffice
 
     # ===== Fonts =====
     iosevka
