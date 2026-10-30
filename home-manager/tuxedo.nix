@@ -80,6 +80,7 @@ in
       resticDiskPassword.key = "resticDiskPassword";
       resticRemoteRepo.key = "resticRemoteRepo";
       resticRemotePassword.key = "resticRemotePassword";
+      # syncthingMacbookId.key = "syncthingMacbookId";
     };
   };
 
@@ -109,6 +110,22 @@ in
   };
 
   services = {
+    syncthing = {
+      enable = true;
+      settings = {
+        # devices."macbook" = {
+        #   id = config.sops.secrets.syncthingMacbookId.path;
+        # };
+        folders."documents-sync" = {
+          id = "documents-sync";
+          path = "${config.home.homeDirectory}/Documents/sync";
+          devices = [ ];
+          # devices = [ "macbook" ];
+          type = "sendreceive";
+        };
+      };
+    };
+
     restic = {
       enable = true;
       backups =

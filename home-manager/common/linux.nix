@@ -77,12 +77,6 @@
     emacs.package = pkgs.emacs-pgtk; # For wayland
   };
 
-  services = {
-    syncthing = {
-      enable = true;
-    };
-  };
-
   xdg = {
     # Make installed apps show up in Gnome.
     # Read: https://github.com/nix-community/home-manager/issues/1439
