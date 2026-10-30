@@ -83,10 +83,27 @@
     };
   };
 
-  # Make installed apps show up in Gnome.
-  # Read: https://github.com/nix-community/home-manager/issues/1439
-  xdg.enable = true;
-  xdg.mime.enable = true;
+  xdg = {
+    # Make installed apps show up in Gnome.
+    # Read: https://github.com/nix-community/home-manager/issues/1439
+    enable = true;
+    mime.enable = true;
+
+    mimeApps = {
+      enable = true;
+      defaultApplications =
+        let
+          myfirefox = "firefox_firefox.desktop";
+        in
+        {
+          "x-scheme-handler/http" = [ myfirefox ];
+          "x-scheme-handler/https" = [ myfirefox ];
+          "text/html" = [ myfirefox ];
+          "application/xhtml+xml" = [ myfirefox ];
+        };
+    };
+  };
+
   targets.genericLinux.enable = true;
 
   # Nicely reload system units when changing configs
