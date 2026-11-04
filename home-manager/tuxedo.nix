@@ -51,7 +51,6 @@ in
     (config.lib.nixGL.wrap telegram-desktop)
     (config.lib.nixGL.wrap typora)
     restic
-    ytmdesktop
 
     # ===== apt-installed packages =====
     # zoom-us # https://zoom.us/download
