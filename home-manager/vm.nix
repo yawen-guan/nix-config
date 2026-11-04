@@ -110,6 +110,7 @@
         enabled_layouts = "horizontal,stack,splits,tall,fat,vertical";
       };
     };
+    zsh.dotDir = "${config.xdg.configHome}/zsh";
   };
 
   xdg.enable = true;
