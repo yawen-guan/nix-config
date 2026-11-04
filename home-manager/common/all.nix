@@ -186,6 +186,8 @@
           "terminal.integrated.minimumContrastRatio" = 1;
           "workbench.secondarySideBar.defaultVisibility" = "hidden";
           # "editor.minimap.enabled" = false;
+          "markdown.preview.fontFamily" =
+            "'Noto Serif', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif";
         };
         keybindings = [
           {
