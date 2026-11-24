@@ -66,6 +66,7 @@
     # isync
     autorandr
     mu
+    tree
     tree-sitter
     openconnect
     ttfautohint
